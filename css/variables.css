@@ -1,0 +1,22 @@
+:root {
+    /* Color Palette */
+    --bg-primary: #0a0a0c;
+    --bg-secondary: #121216;
+    --neon-green: #00ff9f;
+    --neon-pink: #ff0055;
+    --neon-cyan: #00f3ff;
+    --text-primary: #e0e0e0;
+    --text-muted: #888888;
+
+    /* Glows */
+    --glow-green: 0 0 10px var(--neon-green);
+    --glow-pink: 0 0 10px var(--neon-pink);
+    --glow-cyan: 0 0 10px var(--neon-cyan);
+
+    /* Typography */
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+    /* Transitions */
+    --transition-speed: 0.3s;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects // Jennaya Horne</title>
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--text-muted);
+            padding: 1.5rem;
+            transition: all var(--transition-speed);
+        }
+        .card:hover {
+            border-color: var(--neon-green);
+            box-shadow: var(--glow-green);
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">JH//SYSTEM_V1.0</div>
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="projects.html">PROJECTS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+            <div id="system-clock" style="font-family: var(--font-mono); color: var(--neon-cyan);">00:00:00</div>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 4rem;">
+        <h1 class="glitch">PROJECTS</h1>
+        <p style="color: var(--text-muted); margin-bottom: 2rem;">// DEPLOYED SOLUTIONS AND EXPERIMENTS</p>
+
+        <div class="grid">
+            <div class="card">
+                <h3 style="color: var(--neon-pink);">NEURAL_GRID</h3>
+                <p style="margin-top: 1rem;">A distributed system for processing high-volume data streams with low latency.</p>
+                <p style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--neon-cyan);">TS // NODE // REDIS</p>
+            </div>
+            <div class="card">
+                <h3 style="color: var(--neon-pink);">CYBER_SHELL</h3>
+                <p style="margin-top: 1rem;">Custom terminal emulator with integrated AI-assisted command completion.</p>
+                <p style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--neon-cyan);">RUST // WASM</p>
+            </div>
+            <div class="card">
+                <h3 style="color: var(--neon-pink);">VOID_SCAN</h3>
+                <p style="margin-top: 1rem;">Security auditing tool for identifying vulnerabilities in smart contracts.</p>
+                <p style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--neon-cyan);">PYTHON // SOLIDITY</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
