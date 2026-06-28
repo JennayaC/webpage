@@ -19,12 +19,18 @@
             border: 1px solid var(--text-muted);
             padding: 1.5rem;
             transition: all var(--transition-speed);
+            overflow: hidden;
         }
 
         .card:hover {
             border-color: var(--neon-green);
             box-shadow: var(--glow-green);
             transform: translateY(-5px);
+        }
+
+        .card h3 {
+            word-break: break-word;
+            overflow-wrap: break-word;
         }
     </style>
 </head>
