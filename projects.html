@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,12 +13,14 @@
             gap: 2rem;
             margin-top: 2rem;
         }
+
         .card {
             background: var(--bg-secondary);
             border: 1px solid var(--text-muted);
             padding: 1.5rem;
             transition: all var(--transition-speed);
         }
+
         .card:hover {
             border-color: var(--neon-green);
             box-shadow: var(--glow-green);
@@ -25,6 +28,7 @@
         }
     </style>
 </head>
+
 <body>
     <nav>
         <div class="container nav-content">
@@ -44,24 +48,94 @@
         <p style="color: var(--text-muted); margin-bottom: 2rem;">// DEPLOYED SOLUTIONS AND EXPERIMENTS</p>
 
         <div class="grid">
+            <!-- PROJECT 1: Predictive Maintenance -->
             <div class="card">
-                <h3 style="color: var(--neon-pink);">NEURAL_GRID</h3>
-                <p style="margin-top: 1rem;">A distributed system for processing high-volume data streams with low latency.</p>
-                <p style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--neon-cyan);">TS // NODE // REDIS</p>
+                <h3 style="color: var(--neon-pink);">PREDICTIVE_MAINTENANCE</h3>
+                <p style="margin-top: 0.25rem; font-size: 0.85rem; color: var(--text-muted);">Senior Capstone | Becton
+                    Dickinson</p>
+                <p style="margin-top: 1rem;">Analyzed electrical startup signals from the BD Alaris Infusion Pump using
+                    machine learning to detect hardware degradation before failures occur. Redesigned the system to
+                    classify pumps as Healthy or Degraded after identifying embedded hardware memory limitations.</p>
+                <p style="margin-top: 0.5rem;">Processed large datasets of inrush current signals, built classification
+                    models, and presented findings to engineers, faculty, and industry representatives at the senior
+                    capstone showcase.</p>
+                <p style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--neon-cyan);">
+                    PYTHON // TENSORFLOW // KERAS // NUMPY // PANDAS</p>
             </div>
+
+            <!-- PROJECT 2: Multi-Threaded HTTP Server -->
             <div class="card">
-                <h3 style="color: var(--neon-pink);">CYBER_SHELL</h3>
-                <p style="margin-top: 1rem;">Custom terminal emulator with integrated AI-assisted command completion.</p>
-                <p style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--neon-cyan);">RUST // WASM</p>
+                <h3 style="color: var(--neon-pink);">MULTITHREADED_HTTP_SERVER</h3>
+                <p style="margin-top: 0.25rem; font-size: 0.85rem; color: var(--text-muted);">Computer Networks Project
+                </p>
+                <p style="margin-top: 1rem;">Built a multi-threaded HTTP server from scratch in C++ handling multiple
+                    simultaneous client connections. Implemented TCP socket communication, HTTP request parsing, static
+                    file serving, and connection management without relying on existing web server frameworks.</p>
+                <p style="margin-top: 0.5rem;">Managed concurrent requests using POSIX threads and added error handling
+                    for reliable communication.</p>
+                <p style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--neon-cyan);">
+                    C++ // POSIX_THREADS // BERKELEY_SOCKETS // LINUX</p>
             </div>
+
+            <!-- PROJECT 3: Embedded Systems -->
             <div class="card">
-                <h3 style="color: var(--neon-pink);">VOID_SCAN</h3>
-                <p style="margin-top: 1rem;">Security auditing tool for identifying vulnerabilities in smart contracts.</p>
-                <p style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--neon-cyan);">PYTHON // SOLIDITY</p>
+                <h3 style="color: var(--neon-pink);">EMBEDDED_SYSTEMS_DEV</h3>
+                <p style="margin-top: 0.25rem; font-size: 0.85rem; color: var(--text-muted);">STM32 & FreeRTOS Projects
+                </p>
+                <p style="margin-top: 1rem;">Developed real-time applications on the STM32F407 microcontroller using
+                    FreeRTOS. Implemented concurrent task scheduling, LED control, button-driven interrupt handling,
+                    memory allocation, and inter-task communication.</p>
+                <p style="margin-top: 0.5rem;">Debugged firmware directly on hardware, working within tight resource and
+                    timing constraints to verify correct system operation.</p>
+                <p style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--neon-cyan);">
+                    C // STM32F407 // FREERTOS // STM32CUBEIDE</p>
+            </div>
+
+            <!-- PROJECT 4: Portfolio Website -->
+            <div class="card">
+                <h3 style="color: var(--neon-pink);">PORTFOLIO_WEBSITE</h3>
+                <p style="margin-top: 0.25rem; font-size: 0.85rem; color: var(--text-muted);">Personal Project</p>
+                <p style="margin-top: 1rem;">Designed and developed this portfolio website to showcase projects,
+                    technical skills, and experience. Fully responsive with dedicated About, Projects, and Contact
+                    pages, interactive project cards, resume download functionality, and a component-based architecture.
+                </p>
+                <p style="margin-top: 0.5rem;">Focused on clean design, usability, and accessibility using modern
+                    frontend technologies.</p>
+                <p style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--neon-cyan);">
+                    REACT // TYPESCRIPT // TAILWIND_CSS // VITE</p>
+            </div>
+
+            <!-- PROJECT 5: Artificial Intelligence Search Algorithms -->
+            <div class="card">
+                <h3 style="color: var(--neon-pink);">ARTIFICIAL_INTELLIGENCE_SEARCH_ALGORITHMS</h3>
+                <p style="margin-top:0.25rem; font-size: 0.85rem; color: var(--text-muted)">Artificial Intelligence
+                    Project</p>
+                <p style="margin-top:1rem;">As part of my Artificial Intelligence coursework, I implemented several
+                    classical search algorithms used to solve pathfinding and optimization problems. The project focused
+                    on comparing different search strategies and understanding how algorithm design affects performance,
+                    efficiency, and solution quality.
+                </p>
+                <p style="margin-top: 0.75rem; color: var(--text-muted); font-size: 0.9rem; line-height: 1.8;">
+                    Algorithms Include:</p>
+                <ul style="margin-top:0.75rem; color: var(--text-muted); font-size:0.9rem; line-height: 1.8;">
+                    <li>Breadth-First Search (BFS)</li>
+                    <li>Depth-First Search (DFS)</li>
+                    <li>Uniform Cost Search (UCS)</li>
+                    <li>A* Search</li>
+                </ul>
+                <p style="margin-top:0.5rem;">This project introduced me to the foundations of artificial intelligence
+                    while strengthening my understanding of algorithms and problem-solving. It gave me experience
+                    analyzing algorithm performance and selecting appropriate search strategies for different types of
+                    problems.</p>
+                <p style="margin-top:1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--neon-cyan);">
+                    PYTHON</p>
+
+
             </div>
         </div>
     </main>
 
     <script src="js/app.js"></script>
 </body>
+
 </html>
