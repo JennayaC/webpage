@@ -45,7 +45,7 @@ function initActiveNav() {
  */
 function initGlitchEffect() {
     const glitches = document.querySelectorAll('.glitch');
-    
+
     glitches.forEach(el => {
         el.addEventListener('mouseover', () => {
             el.style.animation = 'none';
@@ -54,4 +54,60 @@ function initGlitchEffect() {
             }, 10);
         });
     });
+}
+
+/**
+ * Contact form Validation
+ */
+const form = document.querySelector("form");
+const nameInput = document.querySelector("#name");
+const emailInput = document.querySelector("#email");
+const messageInput = document.querySelector("#message");
+
+//Checks for invalid contact info and stops it from submitting.
+form.addEventListener("submit", function (e) {
+
+    let valid = true;
+
+    if (nameInput.value.trim() === '') {
+        showError(nameInput, "Please enter your name");
+        valid = false;
+    }
+    if (emailInput.value.trim() === '' || !emailInput.value.includes('@')) {
+        showError(emailInput, "Please enter a valid email")
+        valid = false;
+    }
+    if (messageInput.value.trim() === '') {
+        showError(messageInput, "Please enter a message")
+        valid = false;
+    }
+    if (!valid) {
+        e.preventDefault(); //Prevents the form from submitting if the information is invalid.
+
+    }
+
+
+});
+
+/**
+ * Shows error message to user if input is invalid
+ */
+function showError(input, message) {
+    const existing = input.parentElement.querySelector('.error-msg');
+    //Removes any existin errors from input
+    if (existing) existing.remove();
+    //Creates and styles the error message
+    const error = document.createElement('p');
+    error.className = 'error-msg';
+    error.textContent = message;
+    error.style.color = 'var(--neon-pink)';
+    error.style.fontSize = '0.8rem';
+    error.style.marginTop = '0.4rem';
+    error.style.fontFamily = 'var(--font-mono)';
+
+    //Clears out error message when user retypes content
+    input.addEventListener('input', () => error.remove(), { once: true });
+    input.parentElement.appendChild(error);
+    input.style.borderColor = 'var(--neon-pink)';
+
 }
