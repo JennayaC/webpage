@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,16 +14,20 @@
             padding: 2rem;
             border: 1px solid var(--neon-cyan);
         }
+
         .form-group {
             margin-bottom: 1.5rem;
         }
+
         label {
             display: block;
             margin-bottom: 0.5rem;
             font-family: var(--font-mono);
             color: var(--neon-cyan);
         }
-        input, textarea {
+
+        input,
+        textarea {
             width: 100%;
             padding: 0.8rem;
             background: #000;
@@ -30,11 +35,14 @@
             color: #fff;
             font-family: var(--font-sans);
         }
-        input:focus, textarea:focus {
+
+        input:focus,
+        textarea:focus {
             outline: none;
             border-color: var(--neon-green);
             box-shadow: var(--glow-green);
         }
+
         button {
             width: 100%;
             padding: 1rem;
@@ -46,6 +54,7 @@
             cursor: pointer;
             transition: all var(--transition-speed);
         }
+
         button:hover {
             background: var(--neon-pink);
             color: #000;
@@ -53,6 +62,7 @@
         }
     </style>
 </head>
+
 <body>
     <nav>
         <div class="container nav-content">
@@ -71,18 +81,19 @@
         <h1 class="glitch">SECURE_UPLINK</h1>
         <p style="color: var(--text-muted);">// ESTABLISH CONNECTION</p>
 
-        <form>
+        <form action="https://formspree.io/f/xwvddgyr" method="POST">
             <div class="form-group">
                 <label for="name">SENDER_ID</label>
-                <input type="text" id="name" placeholder="Enter name..." required>
+                <input type="text" id="name" name="name" placeholder="Enter name..." required>
             </div>
             <div class="form-group">
                 <label for="email">UPLINK_ADDR</label>
-                <input type="email" id="email" placeholder="Enter email..." required>
+                <input type="email" id="email" name="email" placeholder="Enter email..." required>
             </div>
             <div class="form-group">
                 <label for="message">ENCRYPTED_MESSAGE</label>
-                <textarea id="message" rows="5" placeholder="Transmission details..." required></textarea>
+                <textarea id="message" name="message" rows="5" placeholder="Transmission details..."
+                    required></textarea>
             </div>
             <button type="submit">TRANSMIT_DATA</button>
         </form>
@@ -90,4 +101,5 @@
 
     <script src="js/app.js"></script>
 </body>
+
 </html>
