@@ -67,6 +67,7 @@ const messageInput = document.querySelector("#message");
 //Checks for invalid contact info and stops it from submitting.
 form.addEventListener("submit", function (e) {
 
+    e.preventDefault();
     let valid = true;
 
     if (nameInput.value.trim() === '') {
@@ -81,10 +82,30 @@ form.addEventListener("submit", function (e) {
         showError(messageInput, "Please enter a message")
         valid = false;
     }
-    if (!valid) {
-        e.preventDefault(); //Prevents the form from submitting if the information is invalid.
+    if (!valid) return; //Stops information from sending if it is invalid.
 
-    }
+    const button = form.querySelector("button");
+    button.disabled = true;
+    button.textContent = "TRANSMITTING...";
+
+    //Sends the data without redirecting the user to Formspree Host
+    fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: {
+            "Accept": "application/json"
+        }
+    })
+        .then(function (response) {
+            if (response.ok) {
+                form.style.display = "none";
+                document.getElementById("success-msg").style.display = "block";
+            } else {
+                button.disabled = false;
+                button.textContent = "TRANSMIT_DATA";
+                showError(button, "Transmit Failed. Please Try again");
+            }
+        });
 
 
 });
