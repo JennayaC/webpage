@@ -10,7 +10,7 @@ Build a fully functional contact page where visitors can submit their name, emai
 - ✅ Form inputs have `name` attributes and `method="POST"`.
 - ✅ Form is connected to Formspree and receiving real submissions.
 - ✅ Client-side validation is in place — invalid fields show pink error messages.
-- `js/app.js` still needs submission state handling (Step 4).
+- ✅ Submission state handling is complete (Step 4).
 
 ---
 
@@ -48,26 +48,25 @@ Build a fully functional contact page where visitors can submit their name, emai
 
 ---
 
-### Step 4 — Handle Submission States (Loading & Success/Error Feedback)
+### ✅ Step 4 — Handle Submission States (Loading & Success/Error Feedback)
 **Files:** `js/app.js`, `contact.html`
 
-Right now the button just says "TRANSMIT_DATA" and the page redirects to Formspree after submission. We want to handle this more gracefully within the page.
-
-- [ ] On submit, disable the button and change its text to `TRANSMITTING...` to prevent double-sends
-- [ ] After a successful response: hide the form and show a green confirmation message (e.g. `// TRANSMISSION RECEIVED`)
-- [ ] After an error response: show a pink error message and re-enable the button so they can retry
+- [x] On submit, disable the button and change its text to `TRANSMITTING...` to prevent double-sends
+- [x] After a successful response: hide the form and show a green confirmation message (`// TRANSMISSION RECEIVED`)
+- [x] After an error response: show a pink error message and re-enable the button so they can retry
+- [x] Used `fetch()` to send data without redirecting to Formspree
 
 > **Tip:** These states use existing CSS variables (`--neon-green` for success, `--neon-pink` for error) so no new styles needed.
 
 ---
 
-### Step 5 — Polish & Accessibility
+### Step 5 — Polish & Accessibility (In Progress)
 **Files:** `contact.html`, `css/`
 
 - [ ] Move the inline `<style>` block from `contact.html` into a dedicated `css/contact.css` file and link it
 - [ ] Add a fallback line below `SECURE_UPLINK` showing jennayajch@gmail.com as a direct contact option
-- [ ] Ensure the form is keyboard-navigable (logical tab order, visible focus styles)
-- [ ] Test on a narrow/mobile screen width to confirm the form doesn't overflow
+- [x] Ensure the form is keyboard-navigable (logical tab order, visible focus styles)
+- [x] Test on a narrow/mobile screen width to confirm the form doesn't overflow — added `@media (max-width: 600px)` rules to `main.css`
 
 ---
 
@@ -75,5 +74,5 @@ Right now the button just says "TRANSMIT_DATA" and the page redirects to Formspr
 
 - [x] Submitting a real test message through the live site arrives at jennayajch@gmail.com
 - [x] Submitting with empty fields shows a pink error message
-- [ ] The success state (`// TRANSMISSION RECEIVED`) appears after a real submission without a page redirect
-- [ ] The page looks correct on both desktop and mobile screen sizes
+- [x] The success state (`// TRANSMISSION RECEIVED`) appears after a real submission without a page redirect
+- [x] The page looks correct on both desktop and mobile screen sizes
