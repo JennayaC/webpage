@@ -45,7 +45,7 @@ function initActiveNav() {
  */
 function initGlitchEffect() {
     const glitches = document.querySelectorAll('.glitch');
-    
+
     glitches.forEach(el => {
         el.addEventListener('mouseover', () => {
             el.style.animation = 'none';
@@ -54,4 +54,81 @@ function initGlitchEffect() {
             }, 10);
         });
     });
+}
+
+/**
+ * Contact form Validation
+ */
+const form = document.querySelector("form");
+const nameInput = document.querySelector("#name");
+const emailInput = document.querySelector("#email");
+const messageInput = document.querySelector("#message");
+
+//Checks for invalid contact info and stops it from submitting.
+form.addEventListener("submit", function (e) {
+
+    e.preventDefault();
+    let valid = true;
+
+    if (nameInput.value.trim() === '') {
+        showError(nameInput, "Please enter your name");
+        valid = false;
+    }
+    if (emailInput.value.trim() === '' || !emailInput.value.includes('@')) {
+        showError(emailInput, "Please enter a valid email")
+        valid = false;
+    }
+    if (messageInput.value.trim() === '') {
+        showError(messageInput, "Please enter a message")
+        valid = false;
+    }
+    if (!valid) return; //Stops information from sending if it is invalid.
+
+    const button = form.querySelector("button");
+    button.disabled = true;
+    button.textContent = "TRANSMITTING...";
+
+    //Sends the data without redirecting the user to Formspree Host
+    fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: {
+            "Accept": "application/json"
+        }
+    })
+        .then(function (response) {
+            if (response.ok) {
+                form.style.display = "none";
+                document.getElementById("success-msg").style.display = "block";
+            } else {
+                button.disabled = false;
+                button.textContent = "TRANSMIT_DATA";
+                showError(button, "Transmit Failed. Please Try again");
+            }
+        });
+
+
+});
+
+/**
+ * Shows error message to user if input is invalid
+ */
+function showError(input, message) {
+    const existing = input.parentElement.querySelector('.error-msg');
+    //Removes any existin errors from input
+    if (existing) existing.remove();
+    //Creates and styles the error message
+    const error = document.createElement('p');
+    error.className = 'error-msg';
+    error.textContent = message;
+    error.style.color = 'var(--neon-pink)';
+    error.style.fontSize = '0.8rem';
+    error.style.marginTop = '0.4rem';
+    error.style.fontFamily = 'var(--font-mono)';
+
+    //Clears out error message when user retypes content
+    input.addEventListener('input', () => error.remove(), { once: true });
+    input.parentElement.appendChild(error);
+    input.style.borderColor = 'var(--neon-pink)';
+
 }
