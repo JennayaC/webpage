@@ -60,11 +60,11 @@ Build a fully functional contact page where visitors can submit their name, emai
 
 ---
 
-### Step 5 — Polish & Accessibility (In Progress)
+### ✅ Step 5 — Polish & Accessibility
 **Files:** `contact.html`, `css/`
 
-- [ ] Move the inline `<style>` block from `contact.html` into a dedicated `css/contact.css` file and link it
-- [ ] Add a fallback line below `SECURE_UPLINK` showing jennayajch@gmail.com as a direct contact option
+- [x] Move the inline `<style>` block from `contact.html` into a dedicated `css/contact.css` file and link it
+- [x] Add a fallback line below `SECURE_UPLINK` showing jennayajch@gmail.com as a direct contact option
 - [x] Ensure the form is keyboard-navigable (logical tab order, visible focus styles)
 - [x] Test on a narrow/mobile screen width to confirm the form doesn't overflow — added `@media (max-width: 600px)` rules to `main.css`
 
