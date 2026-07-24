@@ -1,0 +1,96 @@
+#system-clock {
+    font-family: var(--font-mono);
+    color: var(--neon-cyan);
+
+}
+
+main {
+    padding-top: 4rem;
+
+}
+
+main>h1 {
+    margin-bottom: 2rem;
+
+}
+
+#education,
+#experience,
+#skills {
+    margin-bottom: 3rem;
+}
+
+#education h2 {
+    color: var(--neon-pink);
+    text-shadow: var(--glow-pink);
+    border-bottom: 1px solid var(--neon-pink);
+    padding-bottom: 0.5rem;
+    font-size: inherit;
+}
+
+#education .section-body {
+    margin-top: 1rem;
+
+}
+
+#education .school-name {
+    color: var(--neon-pink);
+
+}
+
+#education p {
+    margin-top: 1rem;
+}
+
+#education ul {
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+    color: var(--text-muted);
+
+}
+
+#experience h2 {
+    color: var(--neon-green);
+    text-shadow: var(--glow-green);
+    border-bottom: 1px solid var(--neon-green);
+    padding-bottom: 0.5rem;
+    font-size: inherit;
+}
+
+.exp-entry {
+    margin-top: 1.5rem;
+}
+
+.exp-entry+.exp-entry {
+    margin-top: 2rem;
+}
+
+.exp-entry p {
+    margin-top: 0.5rem;
+}
+
+.exp-note {
+    margin-top: 0.75rem;
+    color: var(--text-muted);
+}
+
+#skills h2 {
+    color: var(--neon-cyan);
+    text-shadow: var(--glow-cyan);
+    border-bottom: 1px solid var(--neon-cyan);
+    padding-bottom: 0.5rem;
+    font-size: inherit;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.skills-grid ul {
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+    color: var(--text-muted);
+}
