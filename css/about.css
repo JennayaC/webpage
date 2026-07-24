@@ -89,8 +89,26 @@ main>h1 {
     margin-top: 1rem;
 }
 
-.skills-grid ul {
-    margin-left: 1.5rem;
-    margin-top: 0.5rem;
-    color: var(--text-muted);
+/* ── Skill pills ── */
+.skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.skill-pill {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--neon-cyan);
+    border: 1px solid var(--neon-cyan);
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    background: rgba(0, 255, 255, 0.05);
+    transition: all 0.2s;
+}
+
+.skill-pill:hover {
+    background: rgba(0, 255, 255, 0.15);
+    box-shadow: var(--glow-cyan);
 }
