@@ -54,7 +54,7 @@ The content is complete and accurate. The main opportunities here are **visual p
 
 ## Checklist
 
-- [ ] Add a `DOWNLOAD_RESUME` button (requires uploading resume PDF first)
+- [x] Add a `DOWNLOAD_RESUME` button (requires uploading resume PDF first)
 - [x] Upgrade TECHNICAL_SPECS to use tag pills or animated skill indicators
-- [ ] Redesign EXPERIENCE as a vertical timeline layout
+- [x] Redesign EXPERIENCE as a vertical timeline layout
 - [x] Extract all inline styles from `about.html` into `css/about.css`
