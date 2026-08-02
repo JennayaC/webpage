@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initClock();
     initActiveNav();
     initGlitchEffect();
+    initBootSequence();
 });
 
 /**
@@ -54,6 +55,49 @@ function initGlitchEffect() {
             }, 10);
         });
     });
+}
+
+/**
+ * Typewriter boot sequence animation on page load.
+ */
+function initBootSequence() {
+    const container = document.getElementById('boot-sequence');
+    if (!container) return;
+
+    const lines = [
+        '> INITIALIZING SYSTEM...',
+        '> LOADING PROFILE: JENNAYA_HORNE',
+        '> UNIT ONLINE. READY.'
+    ];
+
+    let lineIndex = 0;
+    let charIndex = 0;
+
+    function typeLine() {
+        if (lineIndex >= lines.length) return;
+
+        const line = lines[lineIndex];
+
+        if (charIndex === 0) {
+            const p = document.createElement('p');
+            p.id = `boot-line-${lineIndex}`;
+            container.appendChild(p);
+        }
+
+        const currentP = document.getElementById(`boot-line-${lineIndex}`);
+        currentP.textContent = line.substring(0, charIndex + 1);
+        charIndex++;
+
+        if (charIndex < line.length) {
+            setTimeout(typeLine, 40);
+        } else {
+            charIndex = 0;
+            lineIndex++;
+            setTimeout(typeLine, 300);
+        }
+    }
+
+    typeLine();
 }
 
 /**
