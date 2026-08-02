@@ -301,3 +301,61 @@ nav {
     }
 
 }
+
+/* ── Index Page Styles ─────────────────────────────────── */
+
+#system-clock {
+    font-family: var(--font-mono);
+    color: var(--neon-cyan);
+}
+
+#boot-sequence {
+    font-family: var(--font-mono);
+    color: var(--neon-green);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.location-text {
+    margin-top: 0.5rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+}
+
+.intro-section {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.intro-text {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.status-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.status-item {
+    font-family: var(--font-mono);
+    color: var(--neon-cyan);
+    font-size: 0.85rem;
+}
+
+.cta-group {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.cta-btn {
+    padding: 1rem 2rem;
+    border: 1px solid var(--neon-pink);
+}
