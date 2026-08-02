@@ -179,6 +179,19 @@ nav {
     justify-content: center;
     align-items: center;
     text-align: center;
+    position: relative;
+    background-image:
+        repeating-linear-gradient(0deg,
+            transparent,
+            transparent 78px,
+            rgba(0, 255, 136, 0.07) 78px,
+            rgba(0, 255, 136, 0.07) 80px),
+        repeating-linear-gradient(90deg,
+            transparent,
+            transparent 78px,
+            rgba(0, 255, 136, 0.07) 78px,
+            rgba(0, 255, 136, 0.07) 80px);
+
 }
 
 .glitch {
@@ -266,9 +279,25 @@ nav {
 
 .subtitle {
     color: var(--neon-pink);
+    text-shadow: var(--glow-pink);
     font-family: var(--font-mono);
     margin-top: 1rem;
 }
+
+/* ASCII Drone */
+#ascii-walker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.2;
+    color: var(--neon-green);
+    text-shadow: var(--glow-green);
+    pointer-events: none;
+    white-space: pre;
+}
+
 
 @media (max-width: 600px) {
     .nav-content {
@@ -288,4 +317,58 @@ nav {
         font-size: 2rem;
     }
 
+}
+
+/* ── Index Page Styles ─────────────────────────────────── */
+
+#system-clock {
+    font-family: var(--font-mono);
+    color: var(--neon-cyan);
+}
+
+
+.location-text {
+    margin-top: 0.5rem;
+    color: var(--neon-cyan);
+    text-shadow: var(--glow-cyan);
+    font-family: var(--font-mono);
+}
+
+.intro-section {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.intro-text {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.status-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 2rem;
+}
+
+.status-item {
+    font-family: var(--font-mono);
+    color: var(--neon-green);
+    text-shadow: var(--glow-green);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+}
+
+.cta-group {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.cta-btn {
+    padding: 1rem 2rem;
+    border: 1px solid var(--neon-pink);
 }

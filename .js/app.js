@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initClock();
     initActiveNav();
     initGlitchEffect();
+    initStatusBar();
+    initWalker();
 });
 
 /**
@@ -54,6 +56,73 @@ function initGlitchEffect() {
             }, 10);
         });
     });
+}
+
+/**
+ * Typewriter animation for the status bar items, runs on page load.
+ */
+function initStatusBar() {
+    const stats = [
+        { id: 'stat-1', text: '[STATUS: SEEKING_OPPORTUNITIES]' },
+        { id: 'stat-2', text: '[FOCUS: SOFTWARE_ENGINEERING]' }
+    ];
+
+    let statIndex = 0;
+    let charIndex = 0;
+
+    function typeStat() {
+        if (statIndex >= stats.length) return;
+
+        const { id, text } = stats[statIndex];
+        const el = document.getElementById(id);
+        if (!el) return;
+
+        el.textContent = text.substring(0, charIndex + 1);
+        charIndex++;
+
+        if (charIndex < text.length) {
+            setTimeout(typeStat, 40);
+        } else {
+            charIndex = 0;
+            statIndex++;
+            setTimeout(typeStat, 250);
+        }
+    }
+
+    typeStat();
+}
+
+/**
+ * ASCII drone floating around the hero section using sine wave motion.
+ */
+function initWalker() {
+    const walker = document.getElementById('ascii-walker');
+    if (!walker) return;
+
+    walker.textContent = '  .-"-.\n / o o \\\n |  ---  |\n \\_____/\n   | |  ';
+
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+
+    function animate(timestamp) {
+        const heroRect = hero.getBoundingClientRect();
+        const walkerRect = walker.getBoundingClientRect();
+
+        const maxX = heroRect.width - walkerRect.width - 10;
+        const maxY = heroRect.height - walkerRect.height - 10;
+
+        const t = timestamp * 0.0003;
+
+        // Different frequencies create a wandering Lissajous-style path
+        const x = ((Math.sin(t * 1.0) + 1) / 2) * maxX;
+        const y = ((Math.sin(t * 0.7 + 1) + 1) / 2) * maxY;
+
+        walker.style.transform = `translate(${x}px, ${y}px)`;
+
+        requestAnimationFrame(animate);
+    }
+
+    requestAnimationFrame(animate);
 }
 
 /**
