@@ -64,6 +64,5 @@ Styled like terminal readouts with blinking cursor icons.
 
 - [ ] Implement typewriter boot sequence on page load
 - [ ] Add quick-stats / status bar section
-- [ ] Add secondary CTA buttons (`VIEW_PROJECTS`, `DOWNLOAD_RESUME`)
 - [ ] Add hero background grid/particle animation
 - [ ] Move any inline styles added above to `css/main.css` or a dedicated `css/index.css`
