@@ -82,3 +82,60 @@ button:hover {
     font-family: var(--font-mono);
     margin-top: 2rem;
 }
+
+.success-sub {
+    color: var(--neon-pink);
+    font-size: 0.85rem;
+    margin-top: 0.4rem;
+    font-family: var(--font-sans);
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    border: 1px solid;
+    transition: all var(--transition-speed);
+}
+
+.social-btn svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.github-btn {
+    color: var(--neon-cyan);
+    border-color: var(--neon-cyan);
+}
+
+.github-btn:hover {
+    background: var(--neon-cyan);
+    color: #000;
+    box-shadow: var(--glow-cyan);
+}
+
+.linkedin-btn {
+    color: var(--neon-green);
+    border-color: var(--neon-green);
+}
+
+.linkedin-btn:hover {
+    background: var(--neon-green);
+    color: #000;
+    box-shadow: var(--glow-green);
+}
