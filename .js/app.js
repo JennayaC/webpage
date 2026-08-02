@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initActiveNav();
     initGlitchEffect();
     initStatusBar();
+    initWalker();
 });
 
 /**
@@ -89,6 +90,39 @@ function initStatusBar() {
     }
 
     typeStat();
+}
+
+/**
+ * ASCII drone floating around the hero section using sine wave motion.
+ */
+function initWalker() {
+    const walker = document.getElementById('ascii-walker');
+    if (!walker) return;
+
+    walker.textContent = '  .-"-.\n / o o \\\n|  ---  |\n \\_____/\n   | |  ';
+
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+
+    function animate(timestamp) {
+        const heroRect = hero.getBoundingClientRect();
+        const walkerRect = walker.getBoundingClientRect();
+
+        const maxX = heroRect.width - walkerRect.width - 10;
+        const maxY = heroRect.height - walkerRect.height - 10;
+
+        const t = timestamp * 0.0003;
+
+        // Different frequencies create a wandering Lissajous-style path
+        const x = ((Math.sin(t * 1.0) + 1) / 2) * maxX;
+        const y = ((Math.sin(t * 0.7 + 1) + 1) / 2) * maxY;
+
+        walker.style.transform = `translate(${x}px, ${y}px)`;
+
+        requestAnimationFrame(animate);
+    }
+
+    requestAnimationFrame(animate);
 }
 
 /**

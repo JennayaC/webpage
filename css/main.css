@@ -179,6 +179,7 @@ nav {
     justify-content: center;
     align-items: center;
     text-align: center;
+    position: relative;
     background-image:
         repeating-linear-gradient(0deg,
             transparent,
@@ -282,6 +283,21 @@ nav {
     font-family: var(--font-mono);
     margin-top: 1rem;
 }
+
+/* ASCII Drone */
+#ascii-walker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.2;
+    color: var(--neon-green);
+    text-shadow: var(--glow-green);
+    pointer-events: none;
+    white-space: pre;
+}
+
 
 @media (max-width: 600px) {
     .nav-content {
