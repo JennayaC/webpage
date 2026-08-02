@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initClock();
     initActiveNav();
     initGlitchEffect();
-    initBootSequence();
+    initStatusBar();
 });
 
 /**
@@ -58,46 +58,37 @@ function initGlitchEffect() {
 }
 
 /**
- * Typewriter boot sequence animation on page load.
+ * Typewriter animation for the status bar items, runs on page load.
  */
-function initBootSequence() {
-    const container = document.getElementById('boot-sequence');
-    if (!container) return;
-
-    const lines = [
-        '> INITIALIZING SYSTEM...',
-        '> LOADING PROFILE: JENNAYA_HORNE',
-        '> UNIT ONLINE. READY.'
+function initStatusBar() {
+    const stats = [
+        { id: 'stat-1', text: '[STATUS: SEEKING_OPPORTUNITIES]' },
+        { id: 'stat-2', text: '[FOCUS: SOFTWARE_ENGINEERING]' }
     ];
 
-    let lineIndex = 0;
+    let statIndex = 0;
     let charIndex = 0;
 
-    function typeLine() {
-        if (lineIndex >= lines.length) return;
+    function typeStat() {
+        if (statIndex >= stats.length) return;
 
-        const line = lines[lineIndex];
+        const { id, text } = stats[statIndex];
+        const el = document.getElementById(id);
+        if (!el) return;
 
-        if (charIndex === 0) {
-            const p = document.createElement('p');
-            p.id = `boot-line-${lineIndex}`;
-            container.appendChild(p);
-        }
-
-        const currentP = document.getElementById(`boot-line-${lineIndex}`);
-        currentP.textContent = line.substring(0, charIndex + 1);
+        el.textContent = text.substring(0, charIndex + 1);
         charIndex++;
 
-        if (charIndex < line.length) {
-            setTimeout(typeLine, 40);
+        if (charIndex < text.length) {
+            setTimeout(typeStat, 40);
         } else {
             charIndex = 0;
-            lineIndex++;
-            setTimeout(typeLine, 300);
+            statIndex++;
+            setTimeout(typeStat, 250);
         }
     }
 
-    typeLine();
+    typeStat();
 }
 
 /**
