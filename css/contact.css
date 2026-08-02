@@ -63,11 +63,11 @@ button:hover {
 }
 
 .contact-subtitle {
-    color: var(--text-green);
+    color: var(--neon-pink);
 }
 
 .contact-email-text {
-    color: var(--text-green);
+    color: var(--neon-pink);
     font-size: 0.85rem;
 }
 
