@@ -99,7 +99,7 @@ function initWalker() {
     const walker = document.getElementById('ascii-walker');
     if (!walker) return;
 
-    walker.textContent = '  .-"-.\n / o o \\\n|  ---  |\n \\_____/\n   | |  ';
+    walker.textContent = '  .-"-.\n / o o \\\n |  ---  |\n \\_____/\n   | |  ';
 
     const hero = document.querySelector('.hero');
     if (!hero) return;
