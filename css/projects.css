@@ -1,0 +1,193 @@
+/* =========================================================
+   PROJECTS PAGE — Jennaya Horne Portfolio
+   Extracted from projects.html inline <style>
+   ========================================================= */
+
+.projects-main {
+    padding-top: 4rem;
+}
+
+.projects-subtitle {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* ── Base card ─────────────────────────────────────────────── */
+.project-card {
+    background: var(--surface);
+    border: var(--border-width) solid var(--border-muted);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    transition: all var(--transition-speed);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.project-card:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-4px);
+}
+
+.project-card h3 {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    margin: 0;
+}
+
+/* ── Card header ───────────────────────────────────────────── */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.card-title {
+    color: var(--accent-secondary);
+}
+
+.card-toggle {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--accent-tertiary);
+    flex-shrink: 0;
+    margin-left: 1rem;
+    transition: color var(--transition-speed);
+}
+
+/* ── Card body (accordion) ─────────────────────────────────── */
+.card-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.project-card.expanded .card-body {
+    max-height: 600px;
+}
+
+.project-card.expanded .card-toggle {
+    color: var(--accent-secondary);
+}
+
+.card-meta {
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.card-tech {
+    margin-top: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--accent-tertiary);
+}
+
+/* ─── Per-theme card styling ────────────────────────────────── */
+
+/* Retro Gaming */
+[data-theme="retro-gaming"] .project-card:hover {
+    box-shadow: var(--glow-primary);
+}
+
+[data-theme="retro-gaming"] .card-title {
+    color: var(--accent-secondary);
+}
+
+/* Playful Modern — colored accent stripe per card */
+[data-theme="playful-modern"] .project-card {
+    border: 2px solid #252525;
+    border-top: 5px solid var(--accent-primary);
+    box-shadow: 4px 4px 0 #252525;
+}
+
+[data-theme="playful-modern"] .project-card:nth-child(2) {
+    border-top-color: #F2B134;
+}
+
+[data-theme="playful-modern"] .project-card:nth-child(3) {
+    border-top-color: #3264A8;
+}
+
+[data-theme="playful-modern"] .project-card:nth-child(4) {
+    border-top-color: #6A9E78;
+}
+
+[data-theme="playful-modern"] .project-card:nth-child(5) {
+    border-top-color: #F2B134;
+}
+
+[data-theme="playful-modern"] .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 6px 6px 0 #252525;
+}
+
+[data-theme="playful-modern"] .card-title {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+[data-theme="playful-modern"] .card-toggle {
+    color: var(--accent-primary);
+    font-weight: 700;
+}
+
+[data-theme="playful-modern"] .project-card.expanded .card-toggle {
+    color: var(--accent-secondary);
+}
+
+[data-theme="playful-modern"] .card-tech {
+    color: var(--accent-tertiary);
+    font-weight: 500;
+}
+
+/* Warm Bauhaus */
+[data-theme="warm-bauhaus"] .project-card {
+    border: 2px solid var(--border-color);
+    background: var(--surface);
+}
+
+[data-theme="warm-bauhaus"] .project-card:hover {
+    background: var(--surface-alt);
+    box-shadow: 4px 4px 0 var(--accent-secondary);
+    border-color: var(--accent-secondary);
+}
+
+[data-theme="warm-bauhaus"] .card-title {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+[data-theme="warm-bauhaus"] .card-toggle {
+    color: var(--accent-secondary);
+    font-weight: 600;
+}
+
+[data-theme="warm-bauhaus"] .project-card.expanded .card-toggle {
+    color: var(--accent-primary);
+}
+
+[data-theme="warm-bauhaus"] .card-tech {
+    color: var(--accent-secondary);
+    font-weight: 500;
+}
+
+/* ── Reduced motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    .project-card {
+        transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+    }
+    .project-card:hover {
+        transform: none;
+    }
+}

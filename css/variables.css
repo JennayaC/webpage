@@ -1,22 +1,217 @@
-:root {
-    /* Color Palette */
-    --bg-primary: #050506;
-    --bg-secondary: #121216;
-    --neon-green: #00ff1e;
-    --neon-pink: #ff00ea;
-    --neon-cyan: #00f3ff;
-    --text-primary: #e0e0e0;
-    --text-muted: #888888;
+/* =========================================================
+   DESIGN TOKEN SYSTEM — Jennaya Horne Portfolio
+   Retro Gaming is the :root default.
+   ========================================================= */
+
+/* ── Google Fonts ────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+/* =========================================================
+   THEME 1 — RETRO GAMING (default)
+   ========================================================= */
+:root,
+[data-theme="retro-gaming"] {
+    /* Backgrounds */
+    --background:       #050506;
+    --surface:          #121216;
+    --surface-alt:      #000000;
+
+    /* Text */
+    --text-primary:     #e0e0e0;
+    --text-secondary:   #888888;
+
+    /* Accents */
+    --accent-primary:   #00ff1e;
+    --accent-secondary: #ff00ea;
+    --accent-tertiary:  #00f3ff;
+
+    /* Legacy neon aliases (keep for any remaining direct refs) */
+    --neon-green:       #00ff1e;
+    --neon-pink:        #ff00ea;
+    --neon-cyan:        #00f3ff;
 
     /* Glows */
-    --glow-green: 0 0 10px var(--neon-green);
-    --glow-pink: 0 0 10px var(--neon-pink);
-    --glow-cyan: 0 0 10px var(--neon-cyan);
+    --glow-primary:     0 0 10px var(--accent-primary);
+    --glow-secondary:   0 0 10px var(--accent-secondary);
+    --glow-tertiary:    0 0 10px var(--accent-tertiary);
+    /* Legacy glow aliases */
+    --glow-green:       0 0 10px var(--neon-green);
+    --glow-pink:        0 0 10px var(--neon-pink);
+    --glow-cyan:        0 0 10px var(--neon-cyan);
+
+    /* UI Shape */
+    --border-radius:    0px;
+    --border-radius-sm: 0px;
+    --border-radius-lg: 0px;
+    --border-width:     1px;
+
+    /* Borders & Shadows */
+    --border-color:     var(--accent-primary);
+    --border-muted:     var(--text-secondary);
+    --shadow:           0 0 20px rgba(0, 255, 30, 0.15);
+    --focus-ring:       0 0 0 2px var(--accent-primary);
 
     /* Typography */
-    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-heading:     'JetBrains Mono', 'Fira Code', monospace;
+    --font-body:        'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono:        'JetBrains Mono', 'Fira Code', monospace;
+
+    /* Nav */
+    --nav-bg:           rgba(10, 10, 12, 0.95);
+    --nav-border:       var(--accent-primary);
+    --logo-color:       var(--accent-secondary);
+    --nav-link-color:   var(--text-primary);
+    --nav-active-color: var(--accent-secondary);
+
+    /* CRT / Theme FX */
+    --crt-display:      block;
+    --glitch-display:   inline-block;
+    --walker-display:   block;
+
+    /* Hero */
+    --hero-bg:
+        repeating-linear-gradient(0deg,
+            transparent, transparent 78px,
+            rgba(0, 255, 136, 0.07) 78px, rgba(0, 255, 136, 0.07) 80px),
+        repeating-linear-gradient(90deg,
+            transparent, transparent 78px,
+            rgba(0, 255, 136, 0.07) 78px, rgba(0, 255, 136, 0.07) 80px);
 
     /* Transitions */
     --transition-speed: 0.3s;
+}
+
+/* =========================================================
+   THEME 2 — PLAYFUL MODERN
+   ========================================================= */
+[data-theme="playful-modern"] {
+    /* Backgrounds */
+    --background:       #F4EBD8;
+    --surface:          #FFFFFF;
+    --surface-alt:      #F4EBD8;
+
+    /* Text */
+    --text-primary:     #252525;
+    --text-secondary:   #6B6B6B;
+
+    /* Accents */
+    --accent-primary:   #E84A3C;
+    --accent-secondary: #F2B134;
+    --accent-tertiary:  #3264A8;
+    --accent-quad:      #6A9E78;
+
+    /* Legacy aliases (no glows in this theme) */
+    --neon-green:       #6A9E78;
+    --neon-pink:        #E84A3C;
+    --neon-cyan:        #3264A8;
+    --glow-green:       none;
+    --glow-pink:        none;
+    --glow-cyan:        none;
+    --glow-primary:     none;
+    --glow-secondary:   none;
+    --glow-tertiary:    none;
+
+    /* UI Shape */
+    --border-radius:    4px;
+    --border-radius-sm: 2px;
+    --border-radius-lg: 8px;
+    --border-width:     2px;
+
+    /* Borders & Shadows */
+    --border-color:     #252525;
+    --border-muted:     #C5B89A;
+    --shadow:           4px 4px 0px #252525;
+    --focus-ring:       0 0 0 3px #3264A8;
+
+    /* Typography */
+    --font-heading:     'DM Sans', system-ui, sans-serif;
+    --font-body:        'DM Sans', system-ui, sans-serif;
+    --font-mono:        'JetBrains Mono', 'Fira Code', monospace;
+
+    /* Nav */
+    --nav-bg:           #252525;
+    --nav-border:       transparent;
+    --logo-color:       #F2B134;
+    --nav-link-color:   #F4EBD8;
+    --nav-active-color: #E84A3C;
+
+    /* Theme FX off */
+    --crt-display:      none;
+    --glitch-display:   none;
+    --walker-display:   none;
+
+    /* Hero */
+    --hero-bg:
+        repeating-linear-gradient(0deg,
+            transparent, transparent 48px,
+            rgba(37, 37, 37, 0.05) 48px, rgba(37, 37, 37, 0.05) 50px),
+        repeating-linear-gradient(90deg,
+            transparent, transparent 48px,
+            rgba(37, 37, 37, 0.05) 48px, rgba(37, 37, 37, 0.05) 50px);
+
+    --transition-speed: 0.25s;
+}
+
+/* =========================================================
+   THEME 3 — WARM BAUHAUS
+   ========================================================= */
+[data-theme="warm-bauhaus"] {
+    /* Backgrounds */
+    --background:       #EEE7CB;
+    --surface:          #FAF6E8;
+    --surface-alt:      #E8DDB8;
+
+    /* Text */
+    --text-primary:     #281D19;
+    --text-secondary:   #5C3D2E;
+
+    /* Accents */
+    --accent-primary:   #FFB91F;
+    --accent-secondary: #FF642B;
+    --accent-tertiary:  #F5939B;
+
+    /* Legacy aliases */
+    --neon-green:       #FFB91F;
+    --neon-pink:        #FF642B;
+    --neon-cyan:        #F5939B;
+    --glow-green:       none;
+    --glow-pink:        none;
+    --glow-cyan:        none;
+    --glow-primary:     none;
+    --glow-secondary:   none;
+    --glow-tertiary:    none;
+
+    /* UI Shape */
+    --border-radius:    12px;
+    --border-radius-sm: 6px;
+    --border-radius-lg: 24px;
+    --border-width:     2px;
+
+    /* Borders & Shadows */
+    --border-color:     #281D19;
+    --border-muted:     rgba(40, 29, 25, 0.3);
+    --shadow:           3px 3px 0px rgba(40, 29, 25, 0.25);
+    --focus-ring:       0 0 0 3px #FF642B;
+
+    /* Typography */
+    --font-heading:     'Outfit', system-ui, sans-serif;
+    --font-body:        'Outfit', system-ui, sans-serif;
+    --font-mono:        'JetBrains Mono', 'Fira Code', monospace;
+
+    /* Nav */
+    --nav-bg:           #281D19;
+    --nav-border:       transparent;
+    --logo-color:       #FFB91F;
+    --nav-link-color:   #EEE7CB;
+    --nav-active-color: #FF642B;
+
+    /* Theme FX off */
+    --crt-display:      none;
+    --glitch-display:   none;
+    --walker-display:   none;
+
+    /* Hero */
+    --hero-bg:          none;
+
+    --transition-speed: 0.25s;
 }
