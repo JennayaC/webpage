@@ -1,42 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="retro-gaming">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Jennaya Horne — software engineer available for opportunities.">
     <title>Contact // Jennaya Horne</title>
+
+    <!-- Flash-of-wrong-theme prevention -->
+    <script>
+        (function () {
+            var t = localStorage.getItem('jh-portfolio-theme');
+            var valid = ['retro-gaming', 'playful-modern', 'warm-bauhaus'];
+            document.documentElement.setAttribute('data-theme', valid.includes(t) ? t : 'retro-gaming');
+        })();
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/theme-selector.css">
     <link rel="stylesheet" href="css/contact.css">
 </head>
 
 <body>
     <nav>
         <div class="container nav-content">
-            <div class="logo">JH//SYSTEM_V1.0</div>
+            <div class="logo" id="site-logo">
+                <span class="logo-retro">JH//SYSTEM_V1.0</span><span class="logo-clean">jh</span>
+            </div>
             <ul class="nav-links">
                 <li><a href="index.html">HOME</a></li>
                 <li><a href="about.html">ABOUT</a></li>
                 <li><a href="projects.html">PROJECTS</a></li>
                 <li><a href="contact.html">CONTACT</a></li>
+                <li class="nav-theme-item">
+                    <button class="theme-btn" id="theme-btn" aria-haspopup="listbox" aria-expanded="false"
+                        aria-label="Choose theme">
+                        THEME <span class="theme-caret" aria-hidden="true">▾</span>
+                    </button>
+                    <ul class="theme-dropdown" role="listbox" id="theme-dropdown" aria-label="Select a theme">
+                        <li class="theme-option" role="option" data-theme-option="retro-gaming" tabindex="0"
+                            aria-selected="true">
+                            <span class="theme-icon" aria-hidden="true">◼</span> Retro Gaming
+                        </li>
+                        <li class="theme-option" role="option" data-theme-option="playful-modern" tabindex="0"
+                            aria-selected="false">
+                            <span class="theme-icon" aria-hidden="true">◈</span> Playful Modern
+                        </li>
+                        <li class="theme-option" role="option" data-theme-option="warm-bauhaus" tabindex="0"
+                            aria-selected="false">
+                            <span class="theme-icon" aria-hidden="true">◉</span> Warm Bauhaus
+                        </li>
+                    </ul>
+                </li>
             </ul>
             <div id="system-clock">00:00:00</div>
         </div>
     </nav>
 
     <main class="container contact-main">
-        <h1 class="glitch" data-text="SECURE_UPLINK">SECURE_UPLINK</h1>
-        <p class="contact-subtitle">// ESTABLISH CONNECTION</p>
+        <!-- Retro Gaming heading/subtitle -->
+        <h1 class="glitch" data-text="SECURE_UPLINK" id="contact-heading">SECURE_UPLINK</h1>
+        <p class="contact-subtitle" id="contact-subtitle">// ESTABLISH CONNECTION</p>
 
         <div class="social-links">
-            <a href="https://github.com/JennayaC" class="social-btn github-btn" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/JennayaC" class="social-btn github-btn" target="_blank"
+                rel="noopener noreferrer">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/>
+                    <path
+                        d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z" />
                 </svg>
                 GITHUB
             </a>
-            <a href="https://www.linkedin.com/in/jennaya-horne-a80393333" class="social-btn linkedin-btn" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/jennaya-horne-a80393333" class="social-btn linkedin-btn"
+                target="_blank" rel="noopener noreferrer">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    <path
+                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                 </svg>
                 LINKEDIN
             </a>
@@ -49,19 +95,19 @@
 
         <form action="https://formspree.io/f/xwvddgyr" method="POST">
             <div class="form-group">
-                <label for="name">SENDER_ID</label>
+                <label for="name" id="label-name">SENDER_ID</label>
                 <input type="text" id="name" name="name" placeholder="Enter name..." required>
             </div>
             <div class="form-group">
-                <label for="email">UPLINK_ADDR</label>
+                <label for="email" id="label-email">UPLINK_ADDR</label>
                 <input type="email" id="email" name="email" placeholder="Enter email..." required>
             </div>
             <div class="form-group">
-                <label for="message">ENCRYPTED_MESSAGE</label>
+                <label for="message" id="label-message">ENCRYPTED_MESSAGE</label>
                 <textarea id="message" name="message" rows="5" placeholder="Transmission details..."
                     required></textarea>
             </div>
-            <button type="submit">TRANSMIT_DATA</button>
+            <button type="submit" id="submit-btn">TRANSMIT_DATA</button>
         </form>
         <div id="success-msg">
             <p>//TRANSMISSION RECEIVED</p>
@@ -71,6 +117,83 @@
     </main>
 
     <script src=".js/app.js"></script>
+    <script>
+        // Adapt contact page copy to the active theme
+        (function () {
+            const headingEl = document.getElementById('contact-heading');
+            const subtitleEl = document.getElementById('contact-subtitle');
+            const labelName = document.getElementById('label-name');
+            const labelEmail = document.getElementById('label-email');
+            const labelMsg = document.getElementById('label-message');
+            const submitBtn = document.getElementById('submit-btn');
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const msgInput = document.getElementById('message');
+
+            const copies = {
+                'retro-gaming': {
+                    heading: 'SECURE_UPLINK',
+                    headingData: 'SECURE_UPLINK',
+                    subtitle: '// ESTABLISH CONNECTION',
+                    name: 'SENDER_ID',
+                    email: 'UPLINK_ADDR',
+                    message: 'ENCRYPTED_MESSAGE',
+                    submit: 'TRANSMIT_DATA',
+                    namePh: 'Enter name...',
+                    emailPh: 'Enter email...',
+                    msgPh: 'Transmission details...'
+                },
+                'playful-modern': {
+                    heading: 'Say Hello',
+                    headingData: 'Say Hello',
+                    subtitle: "Let's work together or just chat.",
+                    name: 'Your Name',
+                    email: 'Your Email',
+                    message: 'Your Message',
+                    submit: 'Send Message',
+                    namePh: 'Enter name...',
+                    emailPh: 'hello@example.com',
+                    msgPh: "What's on your mind?"
+                },
+                'warm-bauhaus': {
+                    heading: 'Get in Touch',
+                    headingData: 'Get in Touch',
+                    subtitle: 'Open to opportunities and conversations.',
+                    name: 'Name',
+                    email: 'Email',
+                    message: 'Message',
+                    submit: 'Send',
+                    namePh: 'Your name',
+                    emailPh: 'your@email.com',
+                    msgPh: 'Tell me about your project...'
+                }
+            };
+
+            function applyContactCopy() {
+                const theme = document.documentElement.getAttribute('data-theme') || 'retro-gaming';
+                const c = copies[theme] || copies['retro-gaming'];
+                if (headingEl) {
+                    headingEl.textContent = c.heading;
+                    headingEl.setAttribute('data-text', c.headingData);
+                }
+                if (subtitleEl) subtitleEl.textContent = c.subtitle;
+                if (labelName) labelName.textContent = c.name;
+                if (labelEmail) labelEmail.textContent = c.email;
+                if (labelMsg) labelMsg.textContent = c.message;
+                if (submitBtn && !submitBtn.disabled) submitBtn.textContent = c.submit;
+                if (nameInput) nameInput.placeholder = c.namePh;
+                if (emailInput) emailInput.placeholder = c.emailPh;
+                if (msgInput) msgInput.placeholder = c.msgPh;
+            }
+
+            // Apply on load
+            applyContactCopy();
+
+            // Reapply whenever the theme attribute changes
+            const observer = new MutationObserver(applyContactCopy);
+            observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+        })();
+    </script>
 </body>
 
 </html>

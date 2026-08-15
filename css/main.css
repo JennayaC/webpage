@@ -1,29 +1,51 @@
 @import url('./variables.css');
 
+/* =========================================================
+   GLOBAL RESET & BASE
+   ========================================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Theme transition — smooth but instant enough to feel snappy */
+*,
+*::before,
+*::after {
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+/* Structural/layout transitions should NOT be affected */
+.card-body,
+.theme-dropdown,
+.theme-caret {
+    transition: none;  /* managed individually in their own rules */
+}
+
 body {
-    background-color: var(--bg-primary);
+    background-color: var(--background);
     color: var(--text-primary);
-    font-family: var(--font-sans);
+    font-family: var(--font-body);
     line-height: 1.6;
     overflow-x: hidden;
 }
 
-/* CRT Scanline Effect Overlay */
+/* ── CRT Scanline Effect — Retro Gaming only ─────────────── */
 body::after {
     content: " ";
-    display: block;
+    display: var(--crt-display);
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    background:
+        linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
         linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
     z-index: 9999;
     background-size: 100% 4px, 3px 100%;
@@ -33,107 +55,70 @@ body::after {
 }
 
 @keyframes flicker {
-    0% {
-        opacity: 0.27;
-    }
-
-    5% {
-        opacity: 0.32;
-    }
-
-    10% {
-        opacity: 0.25;
-    }
-
-    15% {
-        opacity: 0.35;
-    }
-
-    20% {
-        opacity: 0.30;
-    }
-
-    25% {
-        opacity: 0.32;
-    }
-
-    30% {
-        opacity: 0.28;
-    }
-
-    35% {
-        opacity: 0.37;
-    }
-
-    40% {
-        opacity: 0.32;
-    }
-
-    45% {
-        opacity: 0.35;
-    }
-
-    50% {
-        opacity: 0.28;
-    }
-
-    55% {
-        opacity: 0.32;
-    }
-
-    60% {
-        opacity: 0.35;
-    }
-
-    65% {
-        opacity: 0.28;
-    }
-
-    70% {
-        opacity: 0.37;
-    }
-
-    75% {
-        opacity: 0.32;
-    }
-
-    80% {
-        opacity: 0.28;
-    }
-
-    85% {
-        opacity: 0.35;
-    }
-
-    90% {
-        opacity: 0.28;
-    }
-
-    95% {
-        opacity: 0.32;
-    }
-
-    100% {
-        opacity: 0.27;
-    }
+    0%   { opacity: 0.27; }
+    5%   { opacity: 0.32; }
+    10%  { opacity: 0.25; }
+    15%  { opacity: 0.35; }
+    20%  { opacity: 0.30; }
+    25%  { opacity: 0.32; }
+    30%  { opacity: 0.28; }
+    35%  { opacity: 0.37; }
+    40%  { opacity: 0.32; }
+    45%  { opacity: 0.35; }
+    50%  { opacity: 0.28; }
+    55%  { opacity: 0.32; }
+    60%  { opacity: 0.35; }
+    65%  { opacity: 0.28; }
+    70%  { opacity: 0.37; }
+    75%  { opacity: 0.32; }
+    80%  { opacity: 0.28; }
+    85%  { opacity: 0.35; }
+    90%  { opacity: 0.28; }
+    95%  { opacity: 0.32; }
+    100% { opacity: 0.27; }
 }
 
-h1,
-h2,
-h3 {
+/* ── Typography ──────────────────────────────────────────── */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Non-retro themes: softer headings */
+[data-theme="playful-modern"] h1,
+[data-theme="playful-modern"] h2,
+[data-theme="playful-modern"] h3,
+[data-theme="warm-bauhaus"] h1,
+[data-theme="warm-bauhaus"] h2,
+[data-theme="warm-bauhaus"] h3 {
+    letter-spacing: 0.04em;
+    text-transform: none;
+}
+
+/* Retro Gaming: mono headings */
+[data-theme="retro-gaming"] h1,
+[data-theme="retro-gaming"] h2,
+[data-theme="retro-gaming"] h3 {
     font-family: var(--font-mono);
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
 a {
-    color: var(--neon-green);
+    color: var(--accent-primary);
     text-decoration: none;
     transition: all var(--transition-speed);
 }
 
 a:hover {
-    text-shadow: var(--glow-green);
+    text-shadow: var(--glow-primary);
+}
+
+[data-theme="playful-modern"] a:hover,
+[data-theme="warm-bauhaus"] a:hover {
+    text-shadow: none;
+    opacity: 0.8;
 }
 
 .container {
@@ -142,11 +127,11 @@ a:hover {
     padding: 0 2rem;
 }
 
-/* Nav Styles */
+/* ── Navigation ──────────────────────────────────────────── */
 nav {
-    border-bottom: 1px solid var(--neon-green);
+    background: var(--nav-bg);
+    border-bottom: var(--border-width) solid var(--nav-border);
     padding: 1rem 0;
-    background: rgba(10, 10, 12, 0.9);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -158,51 +143,174 @@ nav {
     align-items: center;
 }
 
+/* ── Logo ─────────────────────────────────────────────────── */
 .logo {
     font-family: var(--font-mono);
     font-weight: bold;
-    color: var(--neon-pink);
-    text-shadow: var(--glow-pink);
+    color: var(--logo-color);
+    text-shadow: var(--glow-secondary);
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-decoration: none;
 }
 
+/* Playful Modern / Warm Bauhaus: clean logo */
+[data-theme="playful-modern"] .logo,
+[data-theme="warm-bauhaus"] .logo {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    letter-spacing: -0.01em;
+    text-shadow: none;
+    font-weight: 700;
+}
+
+/* ── Logo text variants (CSS-driven, no JS flash) ─────────── */
+/* Default (retro): show retro text, hide clean */
+.logo-retro { display: inline; }
+.logo-clean  { display: none; }
+
+/* Non-retro: hide retro text, show clean */
+[data-theme="playful-modern"] .logo-retro,
+[data-theme="warm-bauhaus"]   .logo-retro { display: none; }
+[data-theme="playful-modern"] .logo-clean,
+[data-theme="warm-bauhaus"]   .logo-clean  { display: inline; }
+
+/* ── Nav links ────────────────────────────────────────────── */
 .nav-links {
     list-style: none;
     display: flex;
     gap: 2rem;
+    align-items: center;
 }
 
-/* Header/Hero Section */
+.nav-links a {
+    color: var(--nav-link-color);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+[data-theme="playful-modern"] .nav-links a,
+[data-theme="warm-bauhaus"] .nav-links a {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.nav-links a:hover {
+    color: var(--accent-primary);
+    text-shadow: var(--glow-primary);
+}
+
+[data-theme="playful-modern"] .nav-links a:hover,
+[data-theme="warm-bauhaus"] .nav-links a:hover {
+    text-shadow: none;
+    color: var(--nav-active-color);
+}
+
+/* ── Hero ─────────────────────────────────────────────────── */
 .hero {
-    height: 80vh;
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     position: relative;
-    background-image:
-        repeating-linear-gradient(0deg,
-            transparent,
-            transparent 78px,
-            rgba(0, 255, 136, 0.07) 78px,
-            rgba(0, 255, 136, 0.07) 80px),
-        repeating-linear-gradient(90deg,
-            transparent,
-            transparent 78px,
-            rgba(0, 255, 136, 0.07) 78px,
-            rgba(0, 255, 136, 0.07) 80px);
-
+    background: var(--hero-bg);
+    overflow: hidden;
 }
 
+/* ── Playful Modern hero geometric accent ─────────────────── */
+[data-theme="playful-modern"] .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: #E84A3C;
+    opacity: 0.12;
+    pointer-events: none;
+}
+
+[data-theme="playful-modern"] .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    left: -60px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: #3264A8;
+    opacity: 0.1;
+    pointer-events: none;
+    /* Override the CRT rule for ::after in non-retro themes */
+    background-image: none;
+    background-size: auto;
+    animation: none;
+    z-index: 0;
+    opacity: 0.1;
+}
+
+/* ── Warm Bauhaus hero arch decoration ────────────────────── */
+[data-theme="warm-bauhaus"] .hero::before {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    right: 8%;
+    width: 260px;
+    height: 260px;
+    border-radius: 50% 50% 0 0;
+    background: #FFB91F;
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+[data-theme="warm-bauhaus"] .hero::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 5%;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 14px solid #FF642B;
+    opacity: 0.3;
+    pointer-events: none;
+    background: none;
+    background-image: none;
+    background-size: auto;
+    animation: none;
+    z-index: 0;
+}
+
+/* ── Glitch heading ───────────────────────────────────────── */
 .glitch {
     position: relative;
     font-size: 4rem;
-    color: var(--neon-green);
-    text-shadow: var(--glow-green);
+    color: var(--accent-primary);
+    text-shadow: var(--glow-primary);
+    display: block;
 }
 
-.glitch::before,
-.glitch::after {
+/* Clean heading in non-retro themes — use brand color */
+[data-theme="playful-modern"] .glitch,
+[data-theme="warm-bauhaus"] .glitch {
+    color: var(--text-heading);
+    text-shadow: none;
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+/* Glitch pseudo-elements — only active in retro theme */
+[data-theme="retro-gaming"] .glitch::before,
+[data-theme="retro-gaming"] .glitch::after {
     content: attr(data-text);
     position: absolute;
     top: 0;
@@ -213,78 +321,94 @@ nav {
 
 .glitch::before {
     left: 2px;
-    text-shadow: -2px 0 var(--neon-pink);
+    text-shadow: -2px 0 var(--accent-secondary);
     clip: rect(44px, 450px, 56px, 0);
     animation: glitch-anim 5s infinite linear alternate-reverse;
 }
 
 .glitch::after {
     left: -2px;
-    text-shadow: -2px 0 var(--neon-cyan);
+    text-shadow: -2px 0 var(--accent-tertiary);
     clip: rect(44px, 450px, 56px, 0);
     animation: glitch-anim2 5s infinite linear alternate-reverse;
 }
 
+[data-theme="playful-modern"] .glitch::before,
+[data-theme="playful-modern"] .glitch::after,
+[data-theme="warm-bauhaus"] .glitch::before,
+[data-theme="warm-bauhaus"] .glitch::after {
+    display: none;
+}
+
 @keyframes glitch-anim {
-    0% {
-        clip: rect(31px, 9999px, 94px, 0);
-    }
-
-    20% {
-        clip: rect(62px, 9999px, 42px, 0);
-    }
-
-    40% {
-        clip: rect(16px, 9999px, 78px, 0);
-    }
-
-    60% {
-        clip: rect(58px, 9999px, 49px, 0);
-    }
-
-    80% {
-        clip: rect(73px, 9999px, 86px, 0);
-    }
-
-    100% {
-        clip: rect(13px, 9999px, 33px, 0);
-    }
+    0%   { clip: rect(31px, 9999px, 94px, 0); }
+    20%  { clip: rect(62px, 9999px, 42px, 0); }
+    40%  { clip: rect(16px, 9999px, 78px, 0); }
+    60%  { clip: rect(58px, 9999px, 49px, 0); }
+    80%  { clip: rect(73px, 9999px, 86px, 0); }
+    100% { clip: rect(13px, 9999px, 33px, 0); }
 }
 
 @keyframes glitch-anim2 {
-    0% {
-        clip: rect(65px, 9999px, 100px, 0);
-    }
-
-    20% {
-        clip: rect(10px, 9999px, 58px, 0);
-    }
-
-    40% {
-        clip: rect(82px, 9999px, 22px, 0);
-    }
-
-    60% {
-        clip: rect(45px, 9999px, 69px, 0);
-    }
-
-    80% {
-        clip: rect(98px, 9999px, 15px, 0);
-    }
-
-    100% {
-        clip: rect(27px, 9999px, 84px, 0);
-    }
+    0%   { clip: rect(65px, 9999px, 100px, 0); }
+    20%  { clip: rect(10px, 9999px, 58px, 0); }
+    40%  { clip: rect(82px, 9999px, 22px, 0); }
+    60%  { clip: rect(45px, 9999px, 69px, 0); }
+    80%  { clip: rect(98px, 9999px, 15px, 0); }
+    100% { clip: rect(27px, 9999px, 84px, 0); }
 }
 
+/* ── Subtitle ─────────────────────────────────────────────── */
 .subtitle {
-    color: var(--neon-pink);
-    text-shadow: var(--glow-pink);
+    color: var(--accent-secondary);
+    text-shadow: var(--glow-secondary);
     font-family: var(--font-mono);
     margin-top: 1rem;
+    font-size: 1rem;
 }
 
-/* ASCII Drone */
+[data-theme="playful-modern"] .subtitle {
+    color: var(--text-accent-inline);
+    text-shadow: none;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+[data-theme="warm-bauhaus"] .subtitle {
+    color: var(--text-secondary);
+    text-shadow: none;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 500;
+    font-style: italic;
+}
+
+/* ── Location text ────────────────────────────────────────── */
+.location-text {
+    margin-top: 0.5rem;
+    color: var(--accent-tertiary);
+    text-shadow: var(--glow-tertiary);
+    font-family: var(--font-mono);
+}
+
+[data-theme="playful-modern"] .location-text {
+    color: var(--accent-quad);
+    text-shadow: none;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+[data-theme="warm-bauhaus"] .location-text {
+    color: var(--text-accent-inline);
+    text-shadow: none;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* ── ASCII Walker ─────────────────────────────────────────── */
 #ascii-walker {
     position: absolute;
     top: 0;
@@ -292,46 +416,24 @@ nav {
     font-family: var(--font-mono);
     font-size: 0.75rem;
     line-height: 1.2;
-    color: var(--neon-green);
-    text-shadow: var(--glow-green);
+    color: var(--accent-primary);
+    text-shadow: var(--glow-primary);
     pointer-events: none;
     white-space: pre;
+    display: var(--walker-display);
 }
 
-
-@media (max-width: 600px) {
-    .nav-content {
-        flex-direction: column;
-        gap: 0.75rem;
-        text-align: center;
-
-    }
-
-    .nav-links {
-        gap: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .glitch {
-        font-size: 2rem;
-    }
-
-}
-
-/* ── Index Page Styles ─────────────────────────────────── */
-
+/* ── Index page specifics ─────────────────────────────────── */
 #system-clock {
     font-family: var(--font-mono);
-    color: var(--neon-cyan);
+    color: var(--accent-tertiary);
+    font-size: 0.8rem;
 }
 
-
-.location-text {
-    margin-top: 0.5rem;
-    color: var(--neon-cyan);
-    text-shadow: var(--glow-cyan);
-    font-family: var(--font-mono);
+[data-theme="playful-modern"] #system-clock,
+[data-theme="warm-bauhaus"] #system-clock {
+    color: var(--nav-link-color);
+    opacity: 0.6;
 }
 
 .intro-section {
@@ -354,12 +456,35 @@ nav {
 
 .status-item {
     font-family: var(--font-mono);
-    color: var(--neon-green);
-    text-shadow: var(--glow-green);
+    color: var(--accent-primary);
+    text-shadow: var(--glow-primary);
     font-size: 0.85rem;
     letter-spacing: 0.1em;
 }
 
+[data-theme="playful-modern"] .status-item {
+    text-shadow: none;
+    font-family: var(--font-body);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    background: var(--accent-primary);
+    color: #fff;
+    padding: 0.2rem 0.8rem;
+    border-radius: var(--border-radius-sm);
+}
+
+[data-theme="warm-bauhaus"] .status-item {
+    text-shadow: none;
+    font-family: var(--font-body);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    background: var(--accent-primary);
+    color: var(--text-primary);
+    padding: 0.2rem 0.8rem;
+    border-radius: var(--border-radius-sm);
+}
+
+/* ── CTA buttons ─────────────────────────────────────────── */
 .cta-group {
     margin-top: 2rem;
     display: flex;
@@ -370,5 +495,70 @@ nav {
 
 .cta-btn {
     padding: 1rem 2rem;
-    border: 1px solid var(--neon-pink);
+    border: var(--border-width) solid var(--accent-secondary);
+    color: var(--accent-secondary);
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    transition: all var(--transition-speed);
+}
+
+.cta-btn:hover {
+    background: var(--accent-secondary);
+    color: var(--background);
+    text-shadow: none;
+    box-shadow: var(--glow-secondary);
+}
+
+[data-theme="playful-modern"] .cta-btn:hover,
+[data-theme="warm-bauhaus"] .cta-btn:hover {
+    box-shadow: var(--shadow);
+    text-shadow: none;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 600px) {
+    .nav-content {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+    }
+
+    .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .glitch {
+        font-size: 2rem;
+    }
+
+    [data-theme="playful-modern"] .glitch,
+    [data-theme="warm-bauhaus"] .glitch {
+        font-size: 2rem;
+    }
+}
+
+/* ── Reduced motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    body::after {
+        animation: none;
+    }
+
+    .glitch::before,
+    .glitch::after {
+        animation: none;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+    }
 }

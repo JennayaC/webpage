@@ -14,10 +14,11 @@
 </head>
 
 <body>
-    <div class="card-wrapper">
-        <div class="card">
-            <!-- Left panel: your info -->
-            <div class="card-left">
+    <div class="page-wrapper">
+
+        <!-- PAGE 1 / FRONT: name, title, tags -->
+        <div class="card-wrapper">
+            <div class="card card-front">
                 <div class="card-logo">JH//SYSTEM_V1.0</div>
                 <div class="card-name">Jennaya Horne</div>
                 <div class="card-title">Software Engineer</div>
@@ -32,17 +33,19 @@
                     <span class="tag">Machine Learning</span>
                 </div>
             </div>
+        </div>
 
-            <!-- Right panel: QR code -->
-            <div class="card-right">
+        <!-- PAGE 2 / BACK: QR code -->
+        <div class="card-wrapper">
+            <div class="card card-back">
                 <div class="qr-label">// SCAN_TO_CONNECT</div>
                 <img class="qr-code"
                     src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://jennayac.github.io/webpage/&bgcolor=121216&color=00ff1e&margin=5"
                     alt="QR code linking to jennayac.github.io/webpage" />
                 <div class="qr-url">jennayac.github.io/webpage</div>
             </div>
-
         </div>
+
     </div>
 </body>
 

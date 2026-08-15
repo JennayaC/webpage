@@ -1,101 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="retro-gaming">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projects by Jennaya Horne — machine learning, embedded systems, networking, and web development.">
     <title>Projects // Jennaya Horne</title>
+
+    <!-- Flash-of-wrong-theme prevention -->
+    <script>
+        (function () {
+            var t = localStorage.getItem('jh-portfolio-theme');
+            var valid = ['retro-gaming', 'playful-modern', 'warm-bauhaus'];
+            document.documentElement.setAttribute('data-theme', valid.includes(t) ? t : 'retro-gaming');
+        })();
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/main.css">
-    <style>
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--text-muted);
-            padding: 1.5rem;
-            transition: all var(--transition-speed);
-            overflow: hidden;
-        }
-
-        .card:hover {
-            border-color: var(--neon-green);
-            box-shadow: var(--glow-green);
-            transform: translateY(-5px);
-        }
-
-        .card h3 {
-            word-break: break-word;
-            overflow-wrap: break-word;
-            margin: 0;
-        }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        .card-toggle {
-            font-family: var(--font-mono);
-            font-size: 1rem;
-            color: var(--neon-cyan);
-            flex-shrink: 0;
-            margin-left: 1rem;
-            transition: color var(--transition-speed);
-        }
-
-        .card-body {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease;
-        }
-
-        .card.expanded .card-body {
-            max-height: 600px;
-        }
-
-        .card.expanded .card-toggle {
-            color: var(--neon-pink);
-        }
-    </style>
+    <link rel="stylesheet" href="css/theme-selector.css">
+    <link rel="stylesheet" href="css/projects.css">
 </head>
 
 <body>
     <nav>
         <div class="container nav-content">
-            <div class="logo">JH//SYSTEM_V1.0</div>
+            <div class="logo" id="site-logo">
+                <span class="logo-retro">JH//SYSTEM_V1.0</span><span class="logo-clean">jh</span>
+            </div>
             <ul class="nav-links">
                 <li><a href="index.html">HOME</a></li>
                 <li><a href="about.html">ABOUT</a></li>
                 <li><a href="projects.html">PROJECTS</a></li>
                 <li><a href="contact.html">CONTACT</a></li>
+                <li class="nav-theme-item">
+                    <button class="theme-btn" id="theme-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Choose theme">
+                        THEME <span class="theme-caret" aria-hidden="true">▾</span>
+                    </button>
+                    <ul class="theme-dropdown" role="listbox" id="theme-dropdown" aria-label="Select a theme">
+                        <li class="theme-option" role="option" data-theme-option="retro-gaming" tabindex="0" aria-selected="true">
+                            <span class="theme-icon" aria-hidden="true">◼</span> Retro Gaming
+                        </li>
+                        <li class="theme-option" role="option" data-theme-option="playful-modern" tabindex="0" aria-selected="false">
+                            <span class="theme-icon" aria-hidden="true">◈</span> Playful Modern
+                        </li>
+                        <li class="theme-option" role="option" data-theme-option="warm-bauhaus" tabindex="0" aria-selected="false">
+                            <span class="theme-icon" aria-hidden="true">◉</span> Warm Bauhaus
+                        </li>
+                    </ul>
+                </li>
             </ul>
-            <div id="system-clock" style="font-family: var(--font-mono); color: var(--neon-cyan);">00:00:00</div>
+            <div id="system-clock">00:00:00</div>
         </div>
     </nav>
 
-    <main class="container" style="padding-top: 4rem;">
-        <h1 class="glitch" data-text="PROJECTS" style="margin-bottom: 2rem;">PROJECTS</h1>
-        <p style="color: var(--text-muted); margin-bottom: 2rem;">// DEPLOYED SOLUTIONS AND EXPERIMENTS</p>
+    <main class="container projects-main">
+        <h1 class="glitch" data-text="PROJECTS">PROJECTS</h1>
+        <p class="projects-subtitle">// DEPLOYED SOLUTIONS AND EXPERIMENTS</p>
 
         <div class="grid">
             <!-- PROJECT 1: Predictive Maintenance -->
-            <div class="card">
+            <div class="project-card">
                 <div class="card-header">
-                    <h3 style="color: var(--neon-pink);">PREDICTIVE_MAINTENANCE</h3>
+                    <h3 class="card-title">PREDICTIVE_MAINTENANCE</h3>
                     <span class="card-toggle">[+]</span>
                 </div>
                 <div class="card-body">
-                    <p style="margin-top: 0.25rem; font-size: 0.85rem; color: var(--text-muted);">Senior Capstone |
-                        Becton
-                        Dickinson</p>
+                    <p class="card-meta">Senior Capstone | Becton Dickinson</p>
                     <p style="margin-top: 1rem;">Analyzed electrical startup signals from the BD Alaris Infusion Pump
                         using
                         machine learning to detect hardware degradation before failures occur. Redesigned the system to
@@ -105,22 +80,18 @@
                         classification
                         models, and presented findings to engineers, faculty, and industry representatives at the senior
                         capstone showcase.</p>
-                    <p
-                        style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--neon-cyan);">
-                        PYTHON // TENSORFLOW // KERAS // NUMPY // PANDAS</p>
+                    <p class="card-tech">PYTHON // TENSORFLOW // KERAS // NUMPY // PANDAS</p>
                 </div>
             </div>
 
             <!-- PROJECT 2: Multi-Threaded HTTP Server -->
-            <div class="card">
+            <div class="project-card">
                 <div class="card-header">
-                    <h3 style="color: var(--neon-pink);">MULTITHREADED_HTTP_SERVER</h3>
+                    <h3 class="card-title">MULTITHREADED_HTTP_SERVER</h3>
                     <span class="card-toggle">[+]</span>
                 </div>
                 <div class="card-body">
-                    <p style="margin-top: 0.25rem; font-size: 0.85rem; color: var(--text-muted);">Computer Networks
-                        Project
-                    </p>
+                    <p class="card-meta">Computer Networks Project</p>
                     <p style="margin-top: 1rem;">Built a multi-threaded HTTP server from scratch in C++ handling
                         multiple
                         simultaneous client connections. Implemented TCP socket communication, HTTP request parsing,
@@ -129,65 +100,56 @@
                     <p style="margin-top: 0.5rem;">Managed concurrent requests using POSIX threads and added error
                         handling
                         for reliable communication.</p>
-                    <p
-                        style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--neon-cyan);">
-                        C++ // POSIX_THREADS // BERKELEY_SOCKETS // LINUX</p>
+                    <p class="card-tech">C++ // POSIX_THREADS // BERKELEY_SOCKETS // LINUX</p>
                 </div>
             </div>
 
             <!-- PROJECT 3: Embedded Systems -->
-            <div class="card">
+            <div class="project-card">
                 <div class="card-header">
-                    <h3 style="color: var(--neon-pink);">EMBEDDED_SYSTEMS_DEV</h3>
+                    <h3 class="card-title">EMBEDDED_SYSTEMS_DEV</h3>
                     <span class="card-toggle">[+]</span>
                 </div>
                 <div class="card-body">
-                    <p style="margin-top: 0.25rem; font-size: 0.85rem; color: var(--text-muted);">STM32 & FreeRTOS
-                        Projects
-                    </p>
+                    <p class="card-meta">STM32 &amp; FreeRTOS Projects</p>
                     <p style="margin-top: 1rem;">Developed real-time applications on the STM32F407 microcontroller using
                         FreeRTOS. Implemented concurrent task scheduling, LED control, button-driven interrupt handling,
                         memory allocation, and inter-task communication.</p>
                     <p style="margin-top: 0.5rem;">Debugged firmware directly on hardware, working within tight resource
                         and
                         timing constraints to verify correct system operation.</p>
-                    <p
-                        style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--neon-cyan);">
-                        C // STM32F407 // FREERTOS // STM32CUBEIDE</p>
+                    <p class="card-tech">C // STM32F407 // FREERTOS // STM32CUBEIDE</p>
                 </div>
             </div>
 
             <!-- PROJECT 4: Portfolio Website -->
-            <div class="card">
+            <div class="project-card">
                 <div class="card-header">
-                    <h3 style="color: var(--neon-pink);">PORTFOLIO_WEBSITE</h3>
+                    <h3 class="card-title">PORTFOLIO_WEBSITE</h3>
                     <span class="card-toggle">[+]</span>
                 </div>
                 <div class="card-body">
-                    <p style="margin-top: 0.25rem; font-size: 0.85rem; color: var(--text-muted);">Personal Project (In
-                        Progress)</p>
+                    <p class="card-meta">Personal Project (In Progress)</p>
                     <p style="margin-top: 1rem;">Designed and developed this portfolio website to showcase projects,
-                        technical skills, and experience. Fully responsive with dedicated About, Projects, and Contact
-                        pages, interactive project cards, resume download functionality, and a component-based
-                        architecture.
+                        technical skills, and experience. Features a multi-theme system with Retro Gaming, Playful
+                        Modern, and Warm Bauhaus themes — switchable via a nav selector with localStorage persistence
+                        and keyboard accessibility.
                     </p>
-                    <p style="margin-top: 0.5rem;">Focused on clean design, usability, and accessibility using modern
-                        frontend technologies.</p>
-                    <p
-                        style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--neon-cyan);">
-                        HTML // CSS // JAVASCRIPT</p>
+                    <p style="margin-top: 0.5rem;">Built with a semantic CSS custom property architecture, per-theme
+                        visual personalities, and a fully accessible theme selector as a frontend engineering
+                        demonstration.</p>
+                    <p class="card-tech">HTML // CSS // JAVASCRIPT</p>
                 </div>
             </div>
 
             <!-- PROJECT 5: Artificial Intelligence Search Algorithms -->
-            <div class="card">
+            <div class="project-card">
                 <div class="card-header">
-                    <h3 style="color: var(--neon-pink);">ARTIFICIAL_INTELLIGENCE_SEARCH_ALGORITHMS</h3>
+                    <h3 class="card-title">ARTIFICIAL_INTELLIGENCE_SEARCH_ALGORITHMS</h3>
                     <span class="card-toggle">[+]</span>
                 </div>
                 <div class="card-body">
-                    <p style="margin-top:0.25rem; font-size: 0.85rem; color: var(--text-muted)">Artificial Intelligence
-                        Project</p>
+                    <p class="card-meta">Artificial Intelligence Project</p>
                     <p style="margin-top:1rem;">As part of my Artificial Intelligence coursework, I implemented several
                         classical search algorithms used to solve pathfinding and optimization problems. The project
                         focused
@@ -195,9 +157,8 @@
                         performance,
                         efficiency, and solution quality.
                     </p>
-                    <p style="margin-top: 0.75rem; color: var(--text-muted); font-size: 0.9rem; line-height: 1.8;">
-                        Algorithms Include:</p>
-                    <ul style="margin-top:0.75rem; color: var(--text-muted); font-size:0.9rem; line-height: 1.8;">
+                    <p style="margin-top: 0.75rem; color: var(--text-secondary);">Algorithms Include:</p>
+                    <ul style="margin-top:0.75rem; color: var(--text-secondary); font-size:0.9rem; line-height: 1.8; margin-left: 1.5rem;">
                         <li>Breadth-First Search (BFS)</li>
                         <li>Depth-First Search (DFS)</li>
                         <li>Uniform Cost Search (UCS)</li>
@@ -209,9 +170,7 @@
                         analyzing algorithm performance and selecting appropriate search strategies for different types
                         of
                         problems.</p>
-                    <p
-                        style="margin-top:1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--neon-cyan);">
-                        PYTHON</p>
+                    <p class="card-tech">PYTHON</p>
                 </div>
             </div>
         </div>
@@ -221,7 +180,7 @@
     <script>
         document.querySelectorAll('.card-header').forEach(header => {
             header.addEventListener('click', () => {
-                const card = header.closest('.card');
+                const card = header.closest('.project-card');
                 card.classList.toggle('expanded');
                 const toggle = header.querySelector('.card-toggle');
                 toggle.textContent = card.classList.contains('expanded') ? '[-]' : '[+]';

@@ -1,23 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="retro-gaming">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jennaya Horne — Computer Science graduate and software engineer. View my projects, experience, and skills.">
     <title>Jennaya Horne // Portfolio</title>
+
+    <!-- Flash-of-wrong-theme prevention: apply stored theme before first paint -->
+    <script>
+        (function () {
+            var t = localStorage.getItem('jh-portfolio-theme');
+            var valid = ['retro-gaming', 'playful-modern', 'warm-bauhaus'];
+            document.documentElement.setAttribute('data-theme', valid.includes(t) ? t : 'retro-gaming');
+        })();
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/theme-selector.css">
 </head>
 
 
 <body>
     <nav>
         <div class="container nav-content">
-            <div class="logo">JH//SYSTEM_V1.0</div>
+            <div class="logo" id="site-logo">
+                <span class="logo-retro">JH//SYSTEM_V1.0</span><span class="logo-clean">jh</span>
+            </div>
             <ul class="nav-links">
                 <li><a href="index.html">HOME</a></li>
                 <li><a href="about.html">ABOUT</a></li>
                 <li><a href="projects.html">PROJECTS</a></li>
                 <li><a href="contact.html">CONTACT</a></li>
+                <li class="nav-theme-item">
+                    <button class="theme-btn" id="theme-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Choose theme">
+                        THEME <span class="theme-caret" aria-hidden="true">▾</span>
+                    </button>
+                    <ul class="theme-dropdown" role="listbox" id="theme-dropdown" aria-label="Select a theme">
+                        <li class="theme-option" role="option" data-theme-option="retro-gaming" tabindex="0" aria-selected="true">
+                            <span class="theme-icon" aria-hidden="true">◼</span> Retro Gaming
+                        </li>
+                        <li class="theme-option" role="option" data-theme-option="playful-modern" tabindex="0" aria-selected="false">
+                            <span class="theme-icon" aria-hidden="true">◈</span> Playful Modern
+                        </li>
+                        <li class="theme-option" role="option" data-theme-option="warm-bauhaus" tabindex="0" aria-selected="false">
+                            <span class="theme-icon" aria-hidden="true">◉</span> Warm Bauhaus
+                        </li>
+                    </ul>
+                </li>
             </ul>
             <div id="system-clock">00:00:00</div>
         </div>

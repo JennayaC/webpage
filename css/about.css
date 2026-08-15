@@ -1,63 +1,81 @@
+/* =========================================================
+   ABOUT PAGE — Jennaya Horne Portfolio
+   ========================================================= */
+
 #system-clock {
     font-family: var(--font-mono);
-    color: var(--neon-cyan);
-
+    color: var(--accent-tertiary);
 }
 
 main {
     padding-top: 4rem;
-
 }
 
-main>h1 {
+main > h1 {
     margin-bottom: 2rem;
-
 }
 
-/* ── Resume download button ── */
+/* ── Resume download button ──────────────────────────────── */
 .resume-download {
     margin-bottom: 2.5rem;
 }
 
 .btn-download {
     display: inline-block;
-    font-family: var(--font-mono);
+    font-family: var(--font-heading);
     font-size: 0.85rem;
-    color: var(--neon-pink);
-    border: 1px solid var(--neon-pink);
+    color: var(--accent-secondary);
+    border: var(--border-width) solid var(--accent-secondary);
     padding: 0.5rem 1.2rem;
     text-decoration: none;
     letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: var(--border-radius);
     transition: all 0.2s;
 }
 
 .btn-download:hover {
-    background: rgba(255, 0, 128, 0.1);
-    box-shadow: var(--glow-pink);
+    background: var(--accent-secondary);
+    color: var(--background);
+    box-shadow: var(--glow-secondary);
+    text-shadow: none;
+    opacity: 1;
 }
 
+[data-theme="playful-modern"] .btn-download:hover,
+[data-theme="warm-bauhaus"] .btn-download:hover {
+    box-shadow: var(--shadow);
+}
+
+/* ── Sections ─────────────────────────────────────────────── */
 #education,
 #experience,
 #skills {
     margin-bottom: 3rem;
 }
 
+/* ── Education ────────────────────────────────────────────── */
 #education h2 {
-    color: var(--neon-pink);
-    text-shadow: var(--glow-pink);
-    border-bottom: 1px solid var(--neon-pink);
+    color: var(--accent-secondary);
+    text-shadow: var(--glow-secondary);
+    border-bottom: var(--border-width) solid var(--accent-secondary);
     padding-bottom: 0.5rem;
     font-size: inherit;
 }
 
+[data-theme="playful-modern"] #education h2,
+[data-theme="warm-bauhaus"] #education h2 {
+    color: var(--text-heading);
+    border-bottom-color: var(--text-heading);
+    text-shadow: none;
+}
+
 #education .section-body {
     margin-top: 1rem;
-
 }
 
 #education .school-name {
-    color: var(--neon-pink);
-
+    color: var(--accent-secondary);
 }
 
 #education p {
@@ -67,24 +85,39 @@ main>h1 {
 #education ul {
     margin-left: 1.5rem;
     margin-top: 0.5rem;
-    color: var(--text-muted);
-
+    color: var(--text-secondary);
 }
 
+[data-theme="playful-modern"] #education ul {
+    color: var(--text-accent-inline);
+}
+
+[data-theme="warm-bauhaus"] #education ul {
+    color: var(--text-secondary);
+}
+
+/* ── Experience ───────────────────────────────────────────── */
 #experience h2 {
-    color: var(--neon-green);
-    text-shadow: var(--glow-green);
-    border-bottom: 1px solid var(--neon-green);
+    color: var(--accent-primary);
+    text-shadow: var(--glow-primary);
+    border-bottom: var(--border-width) solid var(--accent-primary);
     padding-bottom: 0.5rem;
     font-size: inherit;
 }
 
-/* ── Timeline ── */
+[data-theme="playful-modern"] #experience h2,
+[data-theme="warm-bauhaus"] #experience h2 {
+    color: var(--text-heading);
+    border-bottom-color: var(--text-heading);
+    text-shadow: none;
+}
+
+/* ── Timeline ─────────────────────────────────────────────── */
 .timeline {
     position: relative;
     margin-top: 1.5rem;
     padding-left: 2rem;
-    border-left: 2px solid var(--neon-green);
+    border-left: 2px solid var(--accent-primary);
 }
 
 .timeline-item {
@@ -99,15 +132,35 @@ main>h1 {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: var(--neon-green);
-    box-shadow: var(--glow-green);
+    background: var(--accent-primary);
+    box-shadow: var(--glow-primary);
+}
+
+[data-theme="playful-modern"] .timeline-dot,
+[data-theme="warm-bauhaus"] .timeline-dot {
+    box-shadow: none;
 }
 
 .timeline-date {
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    color: var(--neon-green);
+    color: var(--accent-primary);
     margin-bottom: 0.4rem;
+}
+
+[data-theme="playful-modern"] .timeline-date,
+[data-theme="warm-bauhaus"] .timeline-date {
+    font-family: var(--font-body);
+    font-weight: 700;
+    color: var(--text-heading);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+[data-theme="playful-modern"] .timeline-content h3,
+[data-theme="warm-bauhaus"] .timeline-content h3 {
+    color: var(--text-heading);
 }
 
 .timeline-content h3 {
@@ -120,16 +173,37 @@ main>h1 {
 
 .exp-note {
     margin-top: 0.75rem;
-    color: var(--text-muted);
+    color: var(--text-secondary);
+    font-style: italic;
 }
 
+[data-theme="playful-modern"] .exp-note {
+    color: var(--text-accent-inline);
+}
 
+[data-theme="warm-bauhaus"] .exp-note {
+    color: var(--text-secondary);
+}
+
+/* ── Skills ───────────────────────────────────────────────── */
 #skills h2 {
-    color: var(--neon-cyan);
-    text-shadow: var(--glow-cyan);
-    border-bottom: 1px solid var(--neon-cyan);
+    color: var(--accent-tertiary);
+    text-shadow: var(--glow-tertiary);
+    border-bottom: var(--border-width) solid var(--accent-tertiary);
     padding-bottom: 0.5rem;
     font-size: inherit;
+}
+
+[data-theme="playful-modern"] #skills h2,
+[data-theme="warm-bauhaus"] #skills h2 {
+    color: var(--text-heading);
+    border-bottom-color: var(--text-heading);
+    text-shadow: none;
+}
+
+[data-theme="playful-modern"] .skills-grid h3,
+[data-theme="warm-bauhaus"] .skills-grid h3 {
+    color: var(--text-accent-inline);
 }
 
 .skills-grid {
@@ -139,7 +213,7 @@ main>h1 {
     margin-top: 1rem;
 }
 
-/* ── Skill pills ── */
+/* ── Skill pills ──────────────────────────────────────────── */
 .skill-pills {
     display: flex;
     flex-wrap: wrap;
@@ -150,15 +224,45 @@ main>h1 {
 .skill-pill {
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    color: var(--neon-cyan);
-    border: 1px solid var(--neon-cyan);
+    color: var(--accent-tertiary);
+    border: var(--border-width) solid var(--accent-tertiary);
     padding: 0.2rem 0.6rem;
-    border-radius: 2px;
-    background: rgba(0, 255, 255, 0.05);
+    border-radius: var(--border-radius-sm);
+    background: transparent;
     transition: all 0.2s;
 }
 
 .skill-pill:hover {
-    background: rgba(0, 255, 255, 0.15);
-    box-shadow: var(--glow-cyan);
+    background: rgba(0, 243, 255, 0.1);
+    box-shadow: var(--glow-tertiary);
+}
+
+[data-theme="playful-modern"] .skill-pill {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--accent-tertiary);
+    border-color: var(--accent-tertiary);
+    background: transparent;
+}
+
+[data-theme="playful-modern"] .skill-pill:hover {
+    background: var(--accent-tertiary);
+    color: #fff;
+    box-shadow: var(--shadow);
+}
+
+[data-theme="warm-bauhaus"] .skill-pill {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-secondary);
+    border-color: var(--accent-secondary);
+    background: transparent;
+}
+
+[data-theme="warm-bauhaus"] .skill-pill:hover {
+    background: var(--accent-secondary);
+    color: var(--surface);
+    box-shadow: 2px 2px 0 var(--border-color);
 }
