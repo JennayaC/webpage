@@ -164,6 +164,17 @@ nav {
     font-weight: 700;
 }
 
+/* ── Logo text variants (CSS-driven, no JS flash) ─────────── */
+/* Default (retro): show retro text, hide clean */
+.logo-retro { display: inline; }
+.logo-clean  { display: none; }
+
+/* Non-retro: hide retro text, show clean */
+[data-theme="playful-modern"] .logo-retro,
+[data-theme="warm-bauhaus"]   .logo-retro { display: none; }
+[data-theme="playful-modern"] .logo-clean,
+[data-theme="warm-bauhaus"]   .logo-clean  { display: inline; }
+
 /* ── Nav links ────────────────────────────────────────────── */
 .nav-links {
     list-style: none;

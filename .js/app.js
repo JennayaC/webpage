@@ -37,22 +37,6 @@ function applyTheme(theme, save = true) {
         } catch (_) { /* storage unavailable */ }
     }
     syncSelectorUI(theme);
-    updateLogoText(theme);
-}
-
-/**
- * Updates the logo text to match the active theme's personality.
- * @param {string} theme
- */
-function updateLogoText(theme) {
-    const logo = document.getElementById('site-logo');
-    if (!logo) return;
-    const logos = {
-        'retro-gaming':   'JH//SYSTEM_V1.0',
-        'playful-modern': 'jh',
-        'warm-bauhaus':   'jh'
-    };
-    logo.textContent = logos[theme] || logos['retro-gaming'];
 }
 
 /**
