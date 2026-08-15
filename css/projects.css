@@ -14,6 +14,21 @@
     font-size: 0.9rem;
 }
 
+[data-theme="playful-modern"] .projects-subtitle {
+    color: var(--text-accent-inline);
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+[data-theme="warm-bauhaus"] .projects-subtitle {
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -86,6 +101,16 @@
     color: var(--text-secondary);
 }
 
+[data-theme="playful-modern"] .card-meta {
+    color: var(--text-accent-inline);
+    font-weight: 500;
+}
+
+[data-theme="warm-bauhaus"] .card-meta {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
 .card-tech {
     margin-top: 1rem;
     font-family: var(--font-mono);
@@ -133,7 +158,7 @@
 }
 
 [data-theme="playful-modern"] .card-title {
-    color: var(--text-primary);
+    color: var(--text-heading);
     font-weight: 700;
 }
 
@@ -164,7 +189,7 @@
 }
 
 [data-theme="warm-bauhaus"] .card-title {
-    color: var(--text-primary);
+    color: var(--text-heading);
     font-weight: 700;
 }
 

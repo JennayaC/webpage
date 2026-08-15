@@ -29,17 +29,17 @@ label {
     font-family: var(--font-body);
     font-weight: 700;
     font-size: 0.85rem;
-    color: var(--text-primary);
-    letter-spacing: 0.02em;
+    color: var(--text-heading);
+    letter-spacing: 0.04em;
     text-transform: uppercase;
 }
 
 [data-theme="warm-bauhaus"] label {
     font-family: var(--font-body);
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.9rem;
-    color: var(--text-primary);
-    letter-spacing: 0.01em;
+    color: var(--text-heading);
+    letter-spacing: 0.02em;
 }
 
 input,
@@ -114,12 +114,20 @@ button[type="submit"]:focus-visible {
     margin-top: 0.5rem;
 }
 
-[data-theme="playful-modern"] .contact-subtitle,
+[data-theme="playful-modern"] .contact-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--text-accent-inline);
+    font-style: italic;
+}
+
 [data-theme="warm-bauhaus"] .contact-subtitle {
     font-family: var(--font-body);
     font-size: 1.1rem;
     font-weight: 400;
     color: var(--text-secondary);
+    font-style: italic;
 }
 
 .contact-email-text {
@@ -128,7 +136,10 @@ button[type="submit"]:focus-visible {
     margin-top: 0.5rem;
 }
 
-[data-theme="playful-modern"] .contact-email-text,
+[data-theme="playful-modern"] .contact-email-text {
+    color: var(--text-accent-inline);
+}
+
 [data-theme="warm-bauhaus"] .contact-email-text {
     color: var(--text-secondary);
 }
@@ -167,7 +178,10 @@ button[type="submit"]:focus-visible {
     font-family: var(--font-body);
 }
 
-[data-theme="playful-modern"] .success-sub,
+[data-theme="playful-modern"] .success-sub {
+    color: var(--text-accent-inline);
+}
+
 [data-theme="warm-bauhaus"] .success-sub {
     color: var(--text-secondary);
 }

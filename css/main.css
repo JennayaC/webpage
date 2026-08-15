@@ -288,10 +288,10 @@ nav {
     display: block;
 }
 
-/* Clean heading in non-retro themes */
+/* Clean heading in non-retro themes — use brand color */
 [data-theme="playful-modern"] .glitch,
 [data-theme="warm-bauhaus"] .glitch {
-    color: var(--text-primary);
+    color: var(--text-heading);
     text-shadow: none;
     font-size: 3.5rem;
     font-weight: 700;
@@ -357,11 +357,11 @@ nav {
 }
 
 [data-theme="playful-modern"] .subtitle {
-    color: var(--text-secondary);
+    color: var(--text-accent-inline);
     text-shadow: none;
     font-family: var(--font-body);
     font-size: 1.1rem;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 [data-theme="warm-bauhaus"] .subtitle {
@@ -369,7 +369,8 @@ nav {
     text-shadow: none;
     font-family: var(--font-body);
     font-size: 1.1rem;
-    font-weight: 400;
+    font-weight: 500;
+    font-style: italic;
 }
 
 /* ── Location text ────────────────────────────────────────── */
@@ -380,11 +381,20 @@ nav {
     font-family: var(--font-mono);
 }
 
-[data-theme="playful-modern"] .location-text,
-[data-theme="warm-bauhaus"] .location-text {
-    color: var(--text-secondary);
+[data-theme="playful-modern"] .location-text {
+    color: var(--accent-quad);
     text-shadow: none;
     font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+[data-theme="warm-bauhaus"] .location-text {
+    color: var(--text-accent-inline);
+    text-shadow: none;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.95rem;
 }
 
 /* ── ASCII Walker ─────────────────────────────────────────── */

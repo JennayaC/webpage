@@ -65,6 +65,8 @@ main > h1 {
 
 [data-theme="playful-modern"] #education h2,
 [data-theme="warm-bauhaus"] #education h2 {
+    color: var(--text-heading);
+    border-bottom-color: var(--text-heading);
     text-shadow: none;
 }
 
@@ -86,6 +88,14 @@ main > h1 {
     color: var(--text-secondary);
 }
 
+[data-theme="playful-modern"] #education ul {
+    color: var(--text-accent-inline);
+}
+
+[data-theme="warm-bauhaus"] #education ul {
+    color: var(--text-secondary);
+}
+
 /* ── Experience ───────────────────────────────────────────── */
 #experience h2 {
     color: var(--accent-primary);
@@ -97,6 +107,8 @@ main > h1 {
 
 [data-theme="playful-modern"] #experience h2,
 [data-theme="warm-bauhaus"] #experience h2 {
+    color: var(--text-heading);
+    border-bottom-color: var(--text-heading);
     text-shadow: none;
 }
 
@@ -139,7 +151,16 @@ main > h1 {
 [data-theme="playful-modern"] .timeline-date,
 [data-theme="warm-bauhaus"] .timeline-date {
     font-family: var(--font-body);
-    font-weight: 600;
+    font-weight: 700;
+    color: var(--text-heading);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+[data-theme="playful-modern"] .timeline-content h3,
+[data-theme="warm-bauhaus"] .timeline-content h3 {
+    color: var(--text-heading);
 }
 
 .timeline-content h3 {
@@ -152,6 +173,15 @@ main > h1 {
 
 .exp-note {
     margin-top: 0.75rem;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+[data-theme="playful-modern"] .exp-note {
+    color: var(--text-accent-inline);
+}
+
+[data-theme="warm-bauhaus"] .exp-note {
     color: var(--text-secondary);
 }
 
@@ -166,7 +196,14 @@ main > h1 {
 
 [data-theme="playful-modern"] #skills h2,
 [data-theme="warm-bauhaus"] #skills h2 {
+    color: var(--text-heading);
+    border-bottom-color: var(--text-heading);
     text-shadow: none;
+}
+
+[data-theme="playful-modern"] .skills-grid h3,
+[data-theme="warm-bauhaus"] .skills-grid h3 {
+    color: var(--text-accent-inline);
 }
 
 .skills-grid {
@@ -218,14 +255,14 @@ main > h1 {
 [data-theme="warm-bauhaus"] .skill-pill {
     font-family: var(--font-body);
     font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--text-primary);
-    border-color: var(--border-color);
-    background: var(--surface-alt);
+    font-weight: 600;
+    color: var(--accent-secondary);
+    border-color: var(--accent-secondary);
+    background: transparent;
 }
 
 [data-theme="warm-bauhaus"] .skill-pill:hover {
-    background: var(--accent-primary);
-    color: var(--text-primary);
+    background: var(--accent-secondary);
+    color: var(--surface);
     box-shadow: 2px 2px 0 var(--border-color);
 }
